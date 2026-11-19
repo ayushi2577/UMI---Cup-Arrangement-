@@ -367,4 +367,4 @@ UMI was built for real robots, and our controller uses only gripper width and ha
 
 Built on [UMI](https://umi-gripper.github.io/) (real-stanford/universal_manipulation_interface). Franka model from MuJoCo Menagerie.
 
-**Authors and contact:** *(add names and emails here)* · **License:** *(add one)*
+**Authors and contact:** Ayushi Agrawal (@ayushi2577), Shivani Srivastava (@shivanisrivastava-01) · **License:** Not yet decided
