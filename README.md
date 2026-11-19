@@ -77,6 +77,18 @@ Failures depend on the layout, not luck: re-running the same seeds fails on near
 
 ---
 
+## Videos of successful episodes
+
+Full-length clips of the final controller (they include the release and the retreat). Each seed is a different random layout.
+
+| Seed | Clip |
+|---|---|
+| 1000 | [seed1000_success.mp4](results/videos/seed1000_success.mp4) |
+| 1002 | [seed1002_success.mp4](results/videos/seed1002_success.mp4) |
+| 1004 | [seed1004_success.mp4](results/videos/seed1004_success.mp4) |
+| 1024 | [seed1024_success.mp4](results/videos/seed1024_success.mp4) |
+| 1059 | [seed1059_success.mp4](results/videos/seed1059_success.mp4) |
+
 ## 4. Repository map
 
 | You want... | Look at |

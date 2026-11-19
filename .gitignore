@@ -3,3 +3,4 @@
 *.zarr.zip
 *.mp4
 __pycache__/
+!results/videos/*.mp4
