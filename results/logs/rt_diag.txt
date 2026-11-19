@@ -1,0 +1,71 @@
+vit will use the CLS token. feature_aggregation (attention_pool_2d) is ignored!
+rgb keys:          ['camera0_rgb']
+low_dim_keys keys: ['robot0_eef_pos', 'robot0_eef_rot_axis_angle', 'robot0_eef_rot_axis_angle_wrt_start', 'robot0_gripper_width']
+==> reduce pretrained obs_encorder's lr
+obs_encorder params: 151
+policy loaded | obs pose repr: relative | action pose repr: relative
+CDUMP cup-eef off=[0.002, 0.001, -0.01] | back/geom84 n=110 F=1.0; lift/geom84 n=60 F=2.3; open/geom84 n=19 F=1.7
+RELTRACE seed 1000 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=2.9 wmax=0.056 tcp_v<=0.244] open[n=19 cup_v<=0.02 Fn<=0.0 wmax=0.079 tcp_v<=0.005] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 124 phase policy width 0.049 Fn 2.5 tcp_v 0.327
+seed 1000 | OK   | cup-saucer xy 0.012 m | cup z now 0.048, max 0.194, upright 1.00 | 2s elapsed
+      -> success | left gripper at step 225, 0.013 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.006 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.01, 0.002, -0.004] | back/geom84 n=110 F=4.4; lift/geom84 n=60 F=3.8; open/geom84 n=19 F=2.3
+RELTRACE seed 1001 OK   | pol_tail[n=30 cup_v<=0.28 Fn<=4.5 wmax=0.056 tcp_v<=0.279] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.014] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.37 at row 218 phase policy width 0.049 Fn 2.5 tcp_v 0.359
+seed 1001 | OK   | cup-saucer xy 0.009 m | cup z now 0.049, max 0.232, upright 1.00 | 4s elapsed
+      -> success | left gripper at step 292, 0.014 m from saucer, z 0.050, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.005 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+Traceback (most recent call last):
+  File "/home/iitgn/umi_mujoco/sim/umi_sim/eval_sim19.py", line 671, in <module>
+    r, frames = rollout(env, policy, cfg, ik, seed, device, record=(i < args.videos))
+  File "/home/iitgn/umi_mujoco/sim/umi_sim/eval_sim19.py", line 451, in rollout
+    act = predict(policy, cfg, env_obs, start_pose, device)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/sim/umi_sim/eval_sim19.py", line 105, in predict
+    res = policy.predict_action(obs_t)
+  File "/home/iitgn/umi_mujoco/universal_manipulation_interface/diffusion_policy/policy/diffusion_unet_timm_policy.py", line 148, in predict_action
+    nsample = self.conditional_sample(
+  File "/home/iitgn/umi_mujoco/universal_manipulation_interface/diffusion_policy/policy/diffusion_unet_timm_policy.py", line 106, in conditional_sample
+    model_output = model(trajectory, t, 
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/universal_manipulation_interface/diffusion_policy/model/diffusion/conditional_unet1d.py", line 228, in forward
+    x = resnet(x, global_feature)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/universal_manipulation_interface/diffusion_policy/model/diffusion/conditional_unet1d.py", line 54, in forward
+    out = self.blocks[0](x)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/universal_manipulation_interface/diffusion_policy/model/diffusion/conv1d_components.py", line 40, in forward
+    return self.block(x)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 310, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 306, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+KeyboardInterrupt
+Exception ignored in: <function Renderer.__del__ at 0x72e631934700>
+Traceback (most recent call last):
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/mujoco/renderer.py", line 335, in __del__
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/mujoco/renderer.py", line 321, in close
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/mujoco/egl/__init__.py", line 122, in free
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function GLContext.__del__ at 0x72e631930e50>
+Traceback (most recent call last):
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/mujoco/egl/__init__.py", line 131, in __del__
+  File "/home/iitgn/umi_mujoco/umi_env/lib/python3.9/site-packages/mujoco/egl/__init__.py", line 122, in free
+TypeError: 'NoneType' object is not callable

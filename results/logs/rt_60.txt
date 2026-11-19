@@ -1,0 +1,388 @@
+vit will use the CLS token. feature_aggregation (attention_pool_2d) is ignored!
+rgb keys:          ['camera0_rgb']
+low_dim_keys keys: ['robot0_eef_pos', 'robot0_eef_rot_axis_angle', 'robot0_eef_rot_axis_angle_wrt_start', 'robot0_gripper_width']
+==> reduce pretrained obs_encorder's lr
+obs_encorder params: 151
+policy loaded | obs pose repr: relative | action pose repr: relative
+CDUMP cup-eef off=[0.002, 0.001, -0.01] | back/geom84 n=110 F=4.8; lift/geom84 n=60 F=2.9; open/geom84 n=19 F=2.8
+RELTRACE seed 1000 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=2.6 wmax=0.056 tcp_v<=0.244] open[n=19 cup_v<=0.05 Fn<=0.0 wmax=0.079 tcp_v<=0.005] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 124 phase policy width 0.049 Fn 2.5 tcp_v 0.326
+seed 1000 | OK   | cup-saucer xy 0.009 m | cup z now 0.049, max 0.194, upright 1.00 | 2s elapsed
+      -> success | left gripper at step 225, 0.013 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.007 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.008, 0.002, -0.006] | back/geom84 n=110 F=4.5; lift/geom84 n=60 F=3.2; open/geom84 n=19 F=3.8
+RELTRACE seed 1001 OK   | pol_tail[n=30 cup_v<=0.28 Fn<=4.0 wmax=0.056 tcp_v<=0.278] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.014] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.36 at row 218 phase policy width 0.049 Fn 2.5 tcp_v 0.355
+seed 1001 | OK   | cup-saucer xy 0.009 m | cup z now 0.048, max 0.234, upright 1.00 | 4s elapsed
+      -> success | left gripper at step 292, 0.015 m from saucer, z 0.049, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.007 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.01, 0.001, -0.005] | back/geom84 n=110 F=4.0; lift/geom84 n=60 F=2.5; open/geom84 n=20 F=1.4
+RELTRACE seed 1002 OK   | pol_tail[n=30 cup_v<=0.29 Fn<=5.1 wmax=0.056 tcp_v<=0.279] open[n=20 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.023] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.36 at row 146 phase policy width 0.049 Fn 2.5 tcp_v 0.359
+seed 1002 | OK   | cup-saucer xy 0.012 m | cup z now 0.049, max 0.181, upright 1.00 | 5s elapsed
+      -> success | left gripper at step 225, 0.018 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.009, -0.002, -0.007] | back/geom84 n=110 F=3.5; lift/geom84 n=60 F=3.0; open/geom84 n=19 F=3.5
+RELTRACE seed 1003 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=7.2 wmax=0.056 tcp_v<=0.260] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.033] lift[n=60 cup_v<=0.05 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.38 at row 194 phase policy width 0.049 Fn 2.5 tcp_v 0.374
+seed 1003 | OK   | cup-saucer xy 0.008 m | cup z now 0.049, max 0.177, upright 1.00 | 7s elapsed
+      -> success | left gripper at step 246, 0.010 m from saucer, z 0.049, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.005 m | saucer moved 0.007 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.004, 0.001, -0.006] | back/geom84 n=110 F=3.4; lift/geom84 n=60 F=4.2; open/geom84 n=19 F=2.1
+RELTRACE seed 1004 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=8.9 wmax=0.057 tcp_v<=0.246] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.013] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.36 at row 194 phase policy width 0.050 Fn 2.5 tcp_v 0.365
+seed 1004 | OK   | cup-saucer xy 0.011 m | cup z now 0.049, max 0.186, upright 1.00 | 9s elapsed
+      -> success | left gripper at step 256, 0.016 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.007 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.234, 0.012, -0.015] | back/geom1 n=110 F=0.8; lift/geom1 n=60 F=1.9; open/geom1 n=19 F=2.9
+RELTRACE seed 1005 FAIL | pol_tail[n=30 cup_v<=1.28 Fn<=24.0 wmax=0.057 tcp_v<=0.226] open[n=19 cup_v<=0.24 Fn<=0.0 wmax=0.080 tcp_v<=0.014] lift[n=60 cup_v<=0.11 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 1.28 at row 220 phase policy width 0.023 Fn 0.0 tcp_v 0.022
+seed 1005 | FAIL | cup-saucer xy 0.244 m | cup z now 0.030, max 0.164, upright 1.00 | 10s elapsed
+      -> slipped_from_closed_grip_near_saucer | left gripper at step 194, 0.038 m from saucer, z 0.119, cmd 0.054 | finger/hand touches after open: 0, cup drift after release: 0.001 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/1
+CDUMP cup-eef off=[-0.004, 0.001, -0.015] | back/geom84 n=110 F=3.3; lift/geom84 n=60 F=4.1; open/geom84 n=19 F=2.7
+RELTRACE seed 1006 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=2.5 wmax=0.056 tcp_v<=0.241] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.013] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.42 at row 147 phase policy width 0.049 Fn 2.5 tcp_v 0.425
+seed 1006 | OK   | cup-saucer xy 0.015 m | cup z now 0.048, max 0.180, upright 1.00 | 12s elapsed
+      -> success | left gripper at step 234, 0.020 m from saucer, z 0.050, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.003, 0.001, -0.019] | back/geom84 n=110 F=2.9; lift/geom84 n=60 F=3.1; open/geom84 n=19 F=2.9
+RELTRACE seed 1007 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=2.5 wmax=0.056 tcp_v<=0.230] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.008] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.29 at row 162 phase policy width 0.049 Fn 2.5 tcp_v 0.288
+seed 1007 | OK   | cup-saucer xy 0.014 m | cup z now 0.049, max 0.160, upright 1.00 | 13s elapsed
+      -> success | left gripper at step 206, 0.018 m from saucer, z 0.057, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.011 m | saucer moved 0.009 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.041, -0.134, -0.05] | back/geom1 n=110 F=1.0; lift/geom1 n=60 F=1.0; open/geom1 n=20 F=1.0
+RELTRACE seed 1008 FAIL | pol_tail[n=30 cup_v<=0.44 Fn<=0.0 wmax=0.056 tcp_v<=0.292] open[n=20 cup_v<=0.07 Fn<=0.0 wmax=0.080 tcp_v<=0.188] lift[n=60 cup_v<=0.08 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 1.41 at row 176 phase policy width 0.012 Fn 0.0 tcp_v 0.258
+seed 1008 | FAIL | cup-saucer xy 0.483 m | cup z now 0.025, max 0.175, upright 0.00 | 14s elapsed
+      -> slipped_from_closed_grip_far_from_saucer | left gripper at step 169, 0.234 m from saucer, z 0.174, cmd 0.052 | finger/hand touches after open: 0, cup drift after release: 0.275 m | saucer moved 0.000 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.009, 0.001, -0.02] | back/geom84 n=110 F=4.1; lift/geom84 n=60 F=3.5; open/geom84 n=19 F=2.2
+RELTRACE seed 1009 OK   | pol_tail[n=30 cup_v<=0.26 Fn<=2.5 wmax=0.056 tcp_v<=0.258] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.010] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.121] | peak cup_v 0.33 at row 170 phase policy width 0.049 Fn 2.5 tcp_v 0.334
+seed 1009 | OK   | cup-saucer xy 0.012 m | cup z now 0.048, max 0.164, upright 1.00 | 16s elapsed
+      -> success | left gripper at step 252, 0.017 m from saucer, z 0.055, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.0, 0.002, -0.007] | back/geom84 n=110 F=3.8; lift/geom84 n=60 F=3.5; open/geom84 n=19 F=1.7
+RELTRACE seed 1010 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=3.9 wmax=0.056 tcp_v<=0.263] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.013] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.30 at row 146 phase policy width 0.049 Fn 2.5 tcp_v 0.316
+seed 1010 | OK   | cup-saucer xy 0.020 m | cup z now 0.048, max 0.206, upright 1.00 | 18s elapsed
+      -> success | left gripper at step 293, 0.025 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.010 m | saucer moved 0.009 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.0, -0.0, -0.008] | back/geom84 n=110 F=3.6; lift/geom84 n=60 F=2.5; open/geom84 n=19 F=3.4
+RELTRACE seed 1011 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=8.6 wmax=0.056 tcp_v<=0.260] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.010] lift[n=60 cup_v<=0.05 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.39 at row 147 phase policy width 0.049 Fn 2.5 tcp_v 0.395
+seed 1011 | OK   | cup-saucer xy 0.007 m | cup z now 0.048, max 0.162, upright 1.00 | 20s elapsed
+      -> success | left gripper at step 235, 0.011 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.005 m | saucer moved 0.002 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.002, 0.0, -0.003] | back/geom84 n=110 F=2.8; lift/geom84 n=60 F=3.3; open/geom84 n=19 F=1.8
+RELTRACE seed 1012 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=4.6 wmax=0.056 tcp_v<=0.267] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.018] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.36 at row 123 phase policy width 0.049 Fn 2.4 tcp_v 0.367
+seed 1012 | OK   | cup-saucer xy 0.011 m | cup z now 0.049, max 0.187, upright 1.00 | 21s elapsed
+      -> success | left gripper at step 237, 0.016 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.006, 0.001, 0.002] | back/geom84 n=110 F=4.2; lift/geom84 n=60 F=3.4; lift/hand_mesh n=7 F=1.1; open/geom84 n=19 F=1.9
+RELTRACE seed 1013 OK   | pol_tail[n=30 cup_v<=0.24 Fn<=4.3 wmax=0.056 tcp_v<=0.232] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.019] lift[n=60 cup_v<=0.04 Fn<=1.1 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.30 at row 217 phase policy width 0.050 Fn 2.4 tcp_v 0.285
+seed 1013 | OK   | cup-saucer xy 0.013 m | cup z now 0.048, max 0.207, upright 1.00 | 23s elapsed
+      -> success | left gripper at step 292, 0.020 m from saucer, z 0.048, cmd 0.063 | finger/hand touches after open: 7, cup drift after release: 0.008 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.005, 0.004, -0.004] | back/geom84 n=110 F=4.0; lift/geom84 n=60 F=3.5; open/geom84 n=19 F=2.1
+RELTRACE seed 1014 OK   | pol_tail[n=30 cup_v<=0.26 Fn<=6.0 wmax=0.056 tcp_v<=0.252] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.032] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.29 at row 186 phase policy width 0.049 Fn 2.5 tcp_v 0.293
+seed 1014 | OK   | cup-saucer xy 0.015 m | cup z now 0.049, max 0.191, upright 1.00 | 25s elapsed
+      -> success | left gripper at step 241, 0.022 m from saucer, z 0.049, cmd 0.066 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.006, -0.001, -0.009] | back/geom84 n=110 F=4.6; lift/geom84 n=60 F=3.6; open/geom84 n=19 F=2.9
+RELTRACE seed 1015 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=2.9 wmax=0.056 tcp_v<=0.261] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.006] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 170 phase policy width 0.049 Fn 2.5 tcp_v 0.326
+seed 1015 | OK   | cup-saucer xy 0.015 m | cup z now 0.049, max 0.158, upright 1.00 | 26s elapsed
+      -> success | left gripper at step 210, 0.021 m from saucer, z 0.048, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.001, 0.002, -0.019] | back/geom84 n=110 F=3.4; lift/geom84 n=60 F=2.0; open/geom84 n=19 F=2.1
+RELTRACE seed 1016 OK   | pol_tail[n=30 cup_v<=0.26 Fn<=4.2 wmax=0.056 tcp_v<=0.258] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.033] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.31 at row 170 phase policy width 0.049 Fn 2.5 tcp_v 0.318
+seed 1016 | OK   | cup-saucer xy 0.012 m | cup z now 0.049, max 0.188, upright 1.00 | 28s elapsed
+      -> success | left gripper at step 242, 0.018 m from saucer, z 0.050, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.007 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.001, -0.002, -0.009] | back/geom84 n=110 F=3.0; lift/geom84 n=60 F=4.6; open/geom84 n=19 F=4.1
+RELTRACE seed 1017 OK   | pol_tail[n=30 cup_v<=0.26 Fn<=2.5 wmax=0.056 tcp_v<=0.253] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.022] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.29 at row 190 phase policy width 0.049 Fn 2.5 tcp_v 0.290
+seed 1017 | OK   | cup-saucer xy 0.021 m | cup z now 0.048, max 0.170, upright 1.00 | 29s elapsed
+      -> success | left gripper at step 255, 0.031 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.013 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.016, -0.262, -0.006] | back/geom1 n=110 F=1.3; lift/geom1 n=60 F=1.3; open/geom1 n=19 F=1.3
+RELTRACE seed 1018 FAIL | pol_tail[n=30 cup_v<=0.06 Fn<=0.0 wmax=0.057 tcp_v<=0.123] open[n=19 cup_v<=0.07 Fn<=0.0 wmax=0.080 tcp_v<=0.021] lift[n=60 cup_v<=0.07 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 1.31 at row 196 phase policy width 0.013 Fn 0.0 tcp_v 0.292
+seed 1018 | FAIL | cup-saucer xy 0.561 m | cup z now 0.025, max 0.156, upright 0.00 | 31s elapsed
+      -> slipped_from_closed_grip_far_from_saucer | left gripper at step 190, 0.213 m from saucer, z 0.140, cmd 0.051 | finger/hand touches after open: 0, cup drift after release: 0.360 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/10
+CDUMP cup-eef off=[0.006, 0.001, -0.004] | back/geom84 n=110 F=4.4; lift/geom84 n=60 F=4.0; open/geom84 n=19 F=1.5
+RELTRACE seed 1019 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=4.1 wmax=0.056 tcp_v<=0.260] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.017] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 123 phase policy width 0.049 Fn 2.4 tcp_v 0.343
+seed 1019 | OK   | cup-saucer xy 0.013 m | cup z now 0.048, max 0.219, upright 1.00 | 33s elapsed
+      -> success | left gripper at step 268, 0.020 m from saucer, z 0.050, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.007, 0.002, -0.001] | back/geom84 n=110 F=4.1; lift/geom84 n=60 F=4.4; open/geom84 n=19 F=2.6
+RELTRACE seed 1020 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=4.5 wmax=0.056 tcp_v<=0.245] open[n=19 cup_v<=0.05 Fn<=0.0 wmax=0.079 tcp_v<=0.027] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 170 phase policy width 0.050 Fn 2.4 tcp_v 0.307
+seed 1020 | OK   | cup-saucer xy 0.009 m | cup z now 0.049, max 0.243, upright 1.00 | 35s elapsed
+      -> success | left gripper at step 290, 0.016 m from saucer, z 0.050, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.003, 0.003, 0.002] | back/geom84 n=110 F=4.3; lift/geom84 n=60 F=3.6; lift/hand_mesh n=6 F=3.1; open/geom84 n=19 F=3.3
+RELTRACE seed 1021 OK   | pol_tail[n=30 cup_v<=0.26 Fn<=3.3 wmax=0.056 tcp_v<=0.253] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.023] lift[n=60 cup_v<=0.04 Fn<=3.1 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.30 at row 216 phase policy width 0.049 Fn 2.5 tcp_v 0.294
+seed 1021 | OK   | cup-saucer xy 0.013 m | cup z now 0.049, max 0.183, upright 1.00 | 37s elapsed
+      -> success | left gripper at step 280, 0.018 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 6, cup drift after release: 0.007 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.003, 0.003, -0.009] | back/geom84 n=110 F=3.3; lift/geom84 n=60 F=4.0; open/geom84 n=20 F=2.4
+RELTRACE seed 1022 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=4.6 wmax=0.056 tcp_v<=0.243] open[n=20 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.018] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.30 at row 111 phase policy width 0.049 Fn 2.5 tcp_v 0.311
+seed 1022 | OK   | cup-saucer xy 0.015 m | cup z now 0.048, max 0.201, upright 1.00 | 39s elapsed
+      -> success | left gripper at step 217, 0.021 m from saucer, z 0.048, cmd 0.059 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.15, -0.24, -0.014] | back/geom1 n=110 F=0.8; lift/geom1 n=60 F=1.5; open/geom1 n=19 F=1.9
+RELTRACE seed 1023 FAIL | pol_tail[n=30 cup_v<=0.22 Fn<=0.0 wmax=0.055 tcp_v<=0.202] open[n=19 cup_v<=0.18 Fn<=0.0 wmax=0.079 tcp_v<=0.009] lift[n=60 cup_v<=0.14 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.94 at row 155 phase policy width 0.016 Fn 0.0 tcp_v 0.177
+seed 1023 | FAIL | cup-saucer xy 0.306 m | cup z now 0.030, max 0.098, upright 1.00 | 40s elapsed
+      -> slipped_from_closed_grip_far_from_saucer | left gripper at step 150, 0.315 m from saucer, z 0.098, cmd 0.050 | finger/hand touches after open: 0, cup drift after release: 0.017 m | saucer moved 0.000 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.0, 0.001, 0.005] | back/geom84 n=110 F=3.3; lift/geom84 n=60 F=12.4; lift/hand_mesh n=12 F=9.6; open/geom84 n=20 F=3.5; open/hand_mesh n=9 F=0.5
+RELTRACE seed 1024 OK   | pol_tail[n=30 cup_v<=0.28 Fn<=4.8 wmax=0.056 tcp_v<=0.275] open[n=20 cup_v<=0.03 Fn<=0.5 wmax=0.080 tcp_v<=0.027] lift[n=60 cup_v<=0.04 Fn<=9.6 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.31 at row 216 phase policy width 0.049 Fn 2.5 tcp_v 0.309
+seed 1024 | OK   | cup-saucer xy 0.010 m | cup z now 0.048, max 0.232, upright 1.00 | 42s elapsed
+      -> success | left gripper at step 310, 0.014 m from saucer, z 0.048, cmd 0.060 | finger/hand touches after open: 21, cup drift after release: 0.006 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.014, 0.001, -0.011] | back/geom84 n=110 F=3.7; lift/geom84 n=60 F=3.0; open/geom84 n=19 F=3.1
+RELTRACE seed 1025 OK   | pol_tail[n=30 cup_v<=0.24 Fn<=3.6 wmax=0.056 tcp_v<=0.236] open[n=19 cup_v<=0.02 Fn<=0.0 wmax=0.079 tcp_v<=0.009] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.121] | peak cup_v 0.36 at row 169 phase policy width 0.050 Fn 2.3 tcp_v 0.331
+seed 1025 | OK   | cup-saucer xy 0.007 m | cup z now 0.048, max 0.184, upright 1.00 | 44s elapsed
+      -> success | left gripper at step 245, 0.010 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.005 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.003, -0.001, -0.023] | back/geom84 n=110 F=3.8; lift/geom84 n=60 F=4.3; open/geom84 n=19 F=2.3
+RELTRACE seed 1026 OK   | pol_tail[n=30 cup_v<=0.36 Fn<=2.5 wmax=0.056 tcp_v<=0.219] open[n=19 cup_v<=0.09 Fn<=0.0 wmax=0.079 tcp_v<=0.009] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.121] | peak cup_v 0.36 at row 225 phase policy width 0.054 Fn 0.0 tcp_v 0.014
+seed 1026 | OK   | cup-saucer xy 0.010 m | cup z now 0.049, max 0.156, upright 1.00 | 46s elapsed
+      -> success | left gripper at step 223, 0.013 m from saucer, z 0.061, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.006 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.008, 0.0, -0.014] | back/geom84 n=110 F=4.0; lift/geom84 n=60 F=3.2; open/geom84 n=20 F=2.0
+RELTRACE seed 1027 OK   | pol_tail[n=30 cup_v<=0.24 Fn<=2.5 wmax=0.055 tcp_v<=0.236] open[n=20 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.013] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.36 at row 147 phase policy width 0.049 Fn 2.5 tcp_v 0.365
+seed 1027 | OK   | cup-saucer xy 0.012 m | cup z now 0.049, max 0.164, upright 1.00 | 47s elapsed
+      -> success | left gripper at step 230, 0.018 m from saucer, z 0.050, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.010 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.001, 0.001, -0.012] | back/geom84 n=110 F=3.4; lift/geom84 n=60 F=3.6; open/geom84 n=19 F=2.8
+RELTRACE seed 1028 OK   | pol_tail[n=30 cup_v<=0.24 Fn<=2.5 wmax=0.056 tcp_v<=0.235] open[n=19 cup_v<=0.06 Fn<=0.0 wmax=0.079 tcp_v<=0.006] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 193 phase policy width 0.050 Fn 2.4 tcp_v 0.300
+seed 1028 | OK   | cup-saucer xy 0.020 m | cup z now 0.049, max 0.175, upright 1.00 | 49s elapsed
+      -> success | left gripper at step 257, 0.026 m from saucer, z 0.054, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.012 m | saucer moved 0.008 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.001, 0.0, -0.023] | back/geom84 n=110 F=3.1; lift/geom84 n=60 F=3.5; open/geom84 n=19 F=2.5
+RELTRACE seed 1029 OK   | pol_tail[n=30 cup_v<=0.40 Fn<=2.7 wmax=0.056 tcp_v<=0.211] open[n=19 cup_v<=0.09 Fn<=0.0 wmax=0.079 tcp_v<=0.008] lift[n=60 cup_v<=0.05 Fn<=0.0 wmax=0.080 tcp_v<=0.121] | peak cup_v 0.40 at row 253 phase policy width 0.054 Fn 0.0 tcp_v 0.008
+seed 1029 | OK   | cup-saucer xy 0.005 m | cup z now 0.048, max 0.192, upright 1.00 | 51s elapsed
+      -> success | left gripper at step 251, 0.006 m from saucer, z 0.064, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.002 m | saucer moved 0.002 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.007, -0.016, -0.017] | back/geom1 n=110 F=0.8; lift/Ltip72 n=19 F=1.5; lift/geom1 n=60 F=1.9; open/Ltip71 n=3 F=7.2; open/Ltip72 n=10 F=7.1; open/Ltip74 n=1 F=0.0; open/geom1 n=7 F=1.9; open/geom84 n=3 F=20.8
+RELTRACE seed 1030 FAIL | pol_tail[n=30 cup_v<=0.25 Fn<=5.9 wmax=0.061 tcp_v<=0.241] open[n=12 cup_v<=0.29 Fn<=14.3 wmax=0.085 tcp_v<=0.072] lift[n=60 cup_v<=0.05 Fn<=1.5 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 194 phase policy width 0.049 Fn 2.5 tcp_v 0.334
+seed 1030 | FAIL | cup-saucer xy 0.164 m | cup z now 0.030, max 0.192, upright 1.00 | 53s elapsed
+      -> slipped_from_closed_grip_near_saucer | left gripper at step 283, 0.035 m from saucer, z 0.045, cmd 0.050 | finger/hand touches after open: 26, cup drift after release: 0.000 m | saucer moved 0.144 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.005, -0.002, 0.007] | back/geom1 n=110 F=1.0; lift/geom1 n=49 F=5.4; lift/geom84 n=6 F=10.7; lift/hand_mesh n=5 F=17.6; open/geom84 n=19 F=13.8; open/hand_mesh n=19 F=10.1
+RELTRACE seed 1031 FAIL | pol_tail[n=30 cup_v<=0.26 Fn<=7.0 wmax=0.057 tcp_v<=0.250] open[n=19 cup_v<=0.02 Fn<=10.1 wmax=0.079 tcp_v<=0.015] lift[n=60 cup_v<=0.94 Fn<=17.6 wmax=0.081 tcp_v<=0.122] | peak cup_v 0.94 at row 263 phase retreat_lift width 0.080 Fn 17.6 tcp_v 0.028
+seed 1031 | FAIL | cup-saucer xy 0.151 m | cup z now 0.025, max 0.195, upright -0.00 | 54s elapsed
+      -> released_on_saucer_then_disturbed | left gripper at step 242, 0.016 m from saucer, z 0.046, cmd 0.080 | finger/hand touches after open: 19, cup drift after release: 0.033 m | saucer moved 0.001 m, finger-saucer touch steps before/after release: 0/2
+CDUMP cup-eef off=[0.008, 0.001, 0.002] | back/geom84 n=110 F=4.5; lift/geom84 n=60 F=5.9; lift/hand_mesh n=9 F=4.7; open/geom84 n=19 F=1.9
+RELTRACE seed 1032 OK   | pol_tail[n=30 cup_v<=0.26 Fn<=4.3 wmax=0.057 tcp_v<=0.250] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.012] lift[n=60 cup_v<=0.05 Fn<=4.7 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.30 at row 148 phase policy width 0.049 Fn 2.5 tcp_v 0.310
+seed 1032 | OK   | cup-saucer xy 0.016 m | cup z now 0.049, max 0.222, upright 1.00 | 56s elapsed
+      -> success | left gripper at step 299, 0.023 m from saucer, z 0.048, cmd 0.062 | finger/hand touches after open: 9, cup drift after release: 0.011 m | saucer moved 0.009 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.05, 0.001, 0.009] | back/geom84 n=110 F=3.8; lift/geom84 n=60 F=2.5; lift/hand_mesh n=6 F=1.6; open/geom84 n=19 F=3.0; open/hand_mesh n=16 F=1.8
+RELTRACE seed 1033 FAIL | pol_tail[n=30 cup_v<=0.74 Fn<=15.0 wmax=0.056 tcp_v<=0.307] open[n=19 cup_v<=0.24 Fn<=1.8 wmax=0.079 tcp_v<=0.019] lift[n=60 cup_v<=0.08 Fn<=1.6 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.74 at row 245 phase policy width 0.056 Fn 1.2 tcp_v 0.021
+seed 1033 | FAIL | cup-saucer xy 0.035 m | cup z now 0.044, max 0.176, upright -0.01 | 58s elapsed
+      -> released_on_saucer_then_disturbed | left gripper at step 247, 0.017 m from saucer, z 0.056, cmd 0.080 | finger/hand touches after open: 19, cup drift after release: 0.025 m | saucer moved 0.009 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.009, 0.001, -0.003] | back/geom84 n=110 F=3.1; lift/geom84 n=60 F=3.6; open/geom84 n=20 F=1.7
+RELTRACE seed 1034 OK   | pol_tail[n=30 cup_v<=0.23 Fn<=4.0 wmax=0.055 tcp_v<=0.221] open[n=20 cup_v<=0.02 Fn<=0.0 wmax=0.080 tcp_v<=0.014] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.39 at row 169 phase policy width 0.050 Fn 2.3 tcp_v 0.358
+seed 1034 | OK   | cup-saucer xy 0.014 m | cup z now 0.049, max 0.213, upright 1.00 | 60s elapsed
+      -> success | left gripper at step 283, 0.021 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.001, 0.001, -0.002] | back/geom84 n=110 F=4.5; lift/geom84 n=60 F=2.2; open/geom84 n=19 F=2.6
+RELTRACE seed 1035 OK   | pol_tail[n=30 cup_v<=0.24 Fn<=8.1 wmax=0.056 tcp_v<=0.233] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.009] lift[n=60 cup_v<=0.05 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.31 at row 194 phase policy width 0.049 Fn 2.5 tcp_v 0.306
+seed 1035 | OK   | cup-saucer xy 0.013 m | cup z now 0.049, max 0.164, upright 1.00 | 61s elapsed
+      -> success | left gripper at step 277, 0.020 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.001, 0.0, -0.004] | back/geom84 n=110 F=3.4; lift/geom84 n=60 F=3.8; open/geom84 n=19 F=3.2
+RELTRACE seed 1036 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=5.1 wmax=0.056 tcp_v<=0.256] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.023] lift[n=60 cup_v<=0.05 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.29 at row 146 phase policy width 0.050 Fn 2.4 tcp_v 0.284
+seed 1036 | OK   | cup-saucer xy 0.012 m | cup z now 0.048, max 0.131, upright 1.00 | 63s elapsed
+      -> success | left gripper at step 195, 0.018 m from saucer, z 0.050, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.035, -0.278, -0.008] | back/geom1 n=110 F=0.7; lift/geom1 n=60 F=0.7; open/geom1 n=19 F=0.7
+RELTRACE seed 1037 FAIL | pol_tail[n=30 cup_v<=0.08 Fn<=0.0 wmax=0.057 tcp_v<=0.150] open[n=19 cup_v<=0.09 Fn<=0.0 wmax=0.080 tcp_v<=0.040] lift[n=60 cup_v<=0.09 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 1.17 at row 224 phase policy width 0.013 Fn 0.0 tcp_v 0.241
+seed 1037 | FAIL | cup-saucer xy 0.628 m | cup z now 0.025, max 0.116, upright 0.00 | 65s elapsed
+      -> slipped_from_closed_grip_far_from_saucer | left gripper at step 218, 0.206 m from saucer, z 0.115, cmd 0.050 | finger/hand touches after open: 0, cup drift after release: 0.441 m | saucer moved 0.000 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.001, 0.001, -0.012] | back/geom84 n=110 F=4.2; lift/geom84 n=60 F=4.6; open/geom84 n=20 F=4.0
+RELTRACE seed 1038 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=2.8 wmax=0.056 tcp_v<=0.267] open[n=20 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.009] lift[n=60 cup_v<=0.06 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 147 phase policy width 0.050 Fn 2.4 tcp_v 0.325
+seed 1038 | OK   | cup-saucer xy 0.013 m | cup z now 0.048, max 0.189, upright 1.00 | 67s elapsed
+      -> success | left gripper at step 271, 0.018 m from saucer, z 0.051, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.048, -0.373, -0.018] | back/geom1 n=110 F=0.8; lift/geom1 n=60 F=0.8; open/geom1 n=19 F=0.8
+RELTRACE seed 1039 FAIL | pol_tail[n=30 cup_v<=0.00 Fn<=0.0 wmax=0.057 tcp_v<=0.260] open[n=19 cup_v<=0.00 Fn<=0.0 wmax=0.080 tcp_v<=0.012] lift[n=60 cup_v<=0.00 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.11 at row 146 phase policy width 0.027 Fn 0.3 tcp_v 0.096
+seed 1039 | FAIL | cup-saucer xy 0.365 m | cup z now 0.030, max 0.032, upright 1.00 | 69s elapsed
+      -> never_lifted | finger/hand touches after open: 0, cup drift after release: 0.000 m | saucer moved 0.000 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.009, 0.002, -0.003] | back/geom84 n=110 F=4.0; lift/geom84 n=60 F=3.2; open/geom84 n=19 F=1.7
+RELTRACE seed 1040 OK   | pol_tail[n=30 cup_v<=0.24 Fn<=3.2 wmax=0.056 tcp_v<=0.238] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.017] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.37 at row 170 phase policy width 0.050 Fn 2.4 tcp_v 0.367
+seed 1040 | OK   | cup-saucer xy 0.010 m | cup z now 0.049, max 0.186, upright 1.00 | 71s elapsed
+      -> success | left gripper at step 246, 0.016 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.007 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.016, 0.002, 0.003] | back/geom84 n=110 F=3.4; lift/geom84 n=60 F=4.1; lift/hand_mesh n=3 F=1.3; open/geom84 n=19 F=2.6
+RELTRACE seed 1041 OK   | pol_tail[n=30 cup_v<=0.29 Fn<=4.2 wmax=0.056 tcp_v<=0.281] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.013] lift[n=60 cup_v<=0.04 Fn<=1.3 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.35 at row 194 phase policy width 0.048 Fn 2.3 tcp_v 0.339
+seed 1041 | OK   | cup-saucer xy 0.020 m | cup z now 0.048, max 0.146, upright 1.00 | 72s elapsed
+      -> success | left gripper at step 236, 0.028 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 3, cup drift after release: 0.011 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.005, 0.0, 0.0] | back/geom84 n=110 F=4.1; lift/geom84 n=60 F=4.0; open/geom84 n=19 F=2.5
+RELTRACE seed 1042 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=4.4 wmax=0.056 tcp_v<=0.265] open[n=19 cup_v<=0.02 Fn<=0.0 wmax=0.079 tcp_v<=0.007] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.31 at row 184 phase policy width 0.049 Fn 2.5 tcp_v 0.310
+seed 1042 | OK   | cup-saucer xy 0.007 m | cup z now 0.048, max 0.211, upright 1.00 | 74s elapsed
+      -> success | left gripper at step 270, 0.012 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.004 m | saucer moved 0.002 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.006, 0.0, -0.005] | back/geom84 n=110 F=3.2; lift/geom84 n=60 F=3.2; open/geom84 n=20 F=1.4
+RELTRACE seed 1043 OK   | pol_tail[n=30 cup_v<=0.29 Fn<=5.6 wmax=0.055 tcp_v<=0.280] open[n=20 cup_v<=0.02 Fn<=0.0 wmax=0.080 tcp_v<=0.026] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.37 at row 266 phase policy width 0.049 Fn 2.5 tcp_v 0.357
+seed 1043 | OK   | cup-saucer xy 0.005 m | cup z now 0.048, max 0.140, upright 1.00 | 76s elapsed
+      -> success | left gripper at step 306, 0.007 m from saucer, z 0.048, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.003 m | saucer moved 0.002 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.114, -0.395, -0.027] | back/geom1 n=110 F=0.7; lift/geom1 n=60 F=0.7; open/geom1 n=19 F=0.7
+RELTRACE seed 1044 FAIL | pol_tail[n=30 cup_v<=0.06 Fn<=0.0 wmax=0.058 tcp_v<=0.198] open[n=19 cup_v<=0.06 Fn<=0.0 wmax=0.080 tcp_v<=0.019] lift[n=60 cup_v<=0.06 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 1.51 at row 152 phase policy width 0.010 Fn 0.0 tcp_v 0.276
+seed 1044 | FAIL | cup-saucer xy 0.625 m | cup z now 0.025, max 0.165, upright -0.00 | 78s elapsed
+      -> slipped_from_closed_grip_far_from_saucer | left gripper at step 145, 0.257 m from saucer, z 0.161, cmd 0.050 | finger/hand touches after open: 0, cup drift after release: 0.381 m | saucer moved 0.000 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.009, 0.002, -0.0] | back/geom84 n=110 F=3.6; lift/geom84 n=60 F=2.9; open/geom84 n=19 F=4.4
+RELTRACE seed 1045 OK   | pol_tail[n=30 cup_v<=0.22 Fn<=3.4 wmax=0.057 tcp_v<=0.209] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.011] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.37 at row 194 phase policy width 0.050 Fn 2.5 tcp_v 0.369
+seed 1045 | OK   | cup-saucer xy 0.015 m | cup z now 0.048, max 0.173, upright 1.00 | 80s elapsed
+      -> success | left gripper at step 255, 0.022 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.002, 0.001, 0.001] | back/geom84 n=110 F=4.2; lift/geom84 n=60 F=3.4; open/geom84 n=19 F=3.1
+RELTRACE seed 1046 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=3.4 wmax=0.056 tcp_v<=0.263] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.019] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.31 at row 170 phase policy width 0.049 Fn 2.5 tcp_v 0.312
+seed 1046 | OK   | cup-saucer xy 0.016 m | cup z now 0.049, max 0.172, upright 1.00 | 82s elapsed
+      -> success | left gripper at step 236, 0.023 m from saucer, z 0.048, cmd 0.062 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.003, 0.002, -0.004] | back/geom84 n=110 F=4.2; lift/geom84 n=60 F=3.6; open/geom84 n=19 F=1.5
+RELTRACE seed 1047 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=2.9 wmax=0.056 tcp_v<=0.245] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.017] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 194 phase policy width 0.049 Fn 2.5 tcp_v 0.320
+seed 1047 | OK   | cup-saucer xy 0.012 m | cup z now 0.048, max 0.209, upright 1.00 | 83s elapsed
+      -> success | left gripper at step 259, 0.017 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.002, -0.001, 0.004] | back/geom84 n=110 F=4.2; lift/geom84 n=60 F=15.5; lift/hand_mesh n=11 F=14.1; open/geom84 n=20 F=1.6
+RELTRACE seed 1048 OK   | pol_tail[n=30 cup_v<=0.22 Fn<=4.9 wmax=0.055 tcp_v<=0.215] open[n=20 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.036] lift[n=60 cup_v<=0.04 Fn<=14.1 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 170 phase policy width 0.050 Fn 2.5 tcp_v 0.317
+seed 1048 | OK   | cup-saucer xy 0.017 m | cup z now 0.049, max 0.209, upright 1.00 | 85s elapsed
+      -> success | left gripper at step 277, 0.024 m from saucer, z 0.049, cmd 0.060 | finger/hand touches after open: 11, cup drift after release: 0.009 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.003, 0.001, -0.016] | back/geom84 n=110 F=4.4; lift/geom84 n=60 F=4.0; open/geom84 n=20 F=3.5
+RELTRACE seed 1049 OK   | pol_tail[n=30 cup_v<=0.24 Fn<=5.2 wmax=0.056 tcp_v<=0.234] open[n=20 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.019] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 122 phase policy width 0.049 Fn 2.5 tcp_v 0.337
+seed 1049 | OK   | cup-saucer xy 0.016 m | cup z now 0.048, max 0.207, upright 1.00 | 87s elapsed
+      -> success | left gripper at step 246, 0.023 m from saucer, z 0.052, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.010 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.003, 0.002, -0.007] | back/geom84 n=110 F=3.1; lift/geom84 n=60 F=3.1; open/geom84 n=19 F=2.2
+RELTRACE seed 1050 OK   | pol_tail[n=30 cup_v<=0.28 Fn<=2.5 wmax=0.056 tcp_v<=0.277] open[n=19 cup_v<=0.02 Fn<=0.0 wmax=0.079 tcp_v<=0.009] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.32 at row 146 phase policy width 0.049 Fn 2.5 tcp_v 0.329
+seed 1050 | OK   | cup-saucer xy 0.008 m | cup z now 0.048, max 0.178, upright 1.00 | 88s elapsed
+      -> success | left gripper at step 230, 0.012 m from saucer, z 0.051, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.006 m | saucer moved 0.003 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.014, 0.002, -0.022] | back/geom84 n=110 F=2.8; lift/geom84 n=60 F=3.7; open/geom84 n=19 F=3.5
+RELTRACE seed 1051 OK   | pol_tail[n=30 cup_v<=0.28 Fn<=2.4 wmax=0.058 tcp_v<=0.270] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.042] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.36 at row 193 phase policy width 0.048 Fn 1.9 tcp_v 0.327
+seed 1051 | OK   | cup-saucer xy 0.014 m | cup z now 0.049, max 0.154, upright 1.00 | 90s elapsed
+      -> success | left gripper at step 241, 0.021 m from saucer, z 0.050, cmd 0.069 | finger/hand touches after open: 0, cup drift after release: 0.005 m | saucer moved 0.002 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.001, 0.002, 0.004] | back/geom84 n=110 F=3.5; lift/geom84 n=60 F=5.6; lift/hand_mesh n=8 F=4.6; open/geom84 n=19 F=3.3
+RELTRACE seed 1052 OK   | pol_tail[n=30 cup_v<=0.27 Fn<=5.0 wmax=0.056 tcp_v<=0.262] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.019] lift[n=60 cup_v<=0.04 Fn<=4.6 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 194 phase policy width 0.049 Fn 2.5 tcp_v 0.331
+seed 1052 | OK   | cup-saucer xy 0.012 m | cup z now 0.049, max 0.206, upright 1.00 | 92s elapsed
+      -> success | left gripper at step 260, 0.018 m from saucer, z 0.048, cmd 0.060 | finger/hand touches after open: 8, cup drift after release: 0.008 m | saucer moved 0.005 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.001, 0.001, -0.016] | back/geom84 n=110 F=3.4; lift/geom84 n=60 F=3.6; open/geom84 n=19 F=1.9
+RELTRACE seed 1053 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=2.5 wmax=0.056 tcp_v<=0.226] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.002] lift[n=60 cup_v<=0.05 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.29 at row 192 phase policy width 0.049 Fn 2.5 tcp_v 0.295
+seed 1053 | OK   | cup-saucer xy 0.010 m | cup z now 0.049, max 0.176, upright 1.00 | 94s elapsed
+      -> success | left gripper at step 255, 0.012 m from saucer, z 0.058, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.006 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.065, -0.229, -0.029] | back/geom1 n=109 F=1.8; lift/geom1 n=60 F=1.6; open/geom1 n=18 F=1.6
+RELTRACE seed 1054 FAIL | pol_tail[n=30 cup_v<=0.17 Fn<=0.0 wmax=0.058 tcp_v<=0.231] open[n=18 cup_v<=0.17 Fn<=0.0 wmax=0.079 tcp_v<=0.014] lift[n=60 cup_v<=0.17 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 1.44 at row 181 phase policy width 0.011 Fn 0.0 tcp_v 0.255
+seed 1054 | FAIL | cup-saucer xy 0.813 m | cup z now 0.025, max 0.167, upright 0.00 | 95s elapsed
+      -> slipped_from_closed_grip_far_from_saucer | left gripper at step 174, 0.119 m from saucer, z 0.160, cmd 0.050 | finger/hand touches after open: 0, cup drift after release: 0.687 m | saucer moved 0.002 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.006, 0.012, -0.012] | back/geom1 n=110 F=1.2; lift/geom1 n=60 F=4.0; open/Rtip78 n=2 F=0.4; open/Rtip79 n=8 F=9.7; open/Rtip80 n=5 F=6.8; open/Rtip81 n=2 F=0.8; open/geom1 n=5 F=4.1; open/geom84 n=5 F=23.4; open/hand_mesh n=6 F=16.4
+RELTRACE seed 1055 FAIL | pol_tail[n=30 cup_v<=0.26 Fn<=22.7 wmax=0.060 tcp_v<=0.257] open[n=13 cup_v<=0.42 Fn<=27.2 wmax=0.087 tcp_v<=0.058] lift[n=60 cup_v<=0.14 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.42 at row 298 phase retreat_open width 0.080 Fn 0.0 tcp_v 0.015
+seed 1055 | FAIL | cup-saucer xy 0.160 m | cup z now 0.030, max 0.236, upright 1.00 | 97s elapsed
+      -> released_on_saucer_then_SAUCER_PUSHED_AWAY | left gripper at step 290, 0.014 m from saucer, z 0.043, cmd 0.080 | finger/hand touches after open: 4, cup drift after release: 0.000 m | saucer moved 0.150 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.008, 0.001, 0.004] | back/geom84 n=110 F=3.4; lift/geom84 n=60 F=10.0; lift/hand_mesh n=8 F=7.9; open/geom84 n=19 F=2.9
+RELTRACE seed 1056 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=4.8 wmax=0.056 tcp_v<=0.245] open[n=19 cup_v<=0.02 Fn<=0.0 wmax=0.079 tcp_v<=0.009] lift[n=60 cup_v<=0.04 Fn<=7.9 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.31 at row 216 phase policy width 0.049 Fn 2.5 tcp_v 0.317
+seed 1056 | OK   | cup-saucer xy 0.012 m | cup z now 0.048, max 0.253, upright 1.00 | 99s elapsed
+      -> success | left gripper at step 317, 0.018 m from saucer, z 0.049, cmd 0.061 | finger/hand touches after open: 8, cup drift after release: 0.007 m | saucer moved 0.002 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[-0.0, 0.0, -0.011] | back/geom84 n=110 F=3.7; lift/geom84 n=60 F=4.2; open/geom84 n=19 F=3.5
+RELTRACE seed 1057 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=2.7 wmax=0.056 tcp_v<=0.245] open[n=19 cup_v<=0.05 Fn<=0.0 wmax=0.079 tcp_v<=0.014] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 170 phase policy width 0.049 Fn 2.5 tcp_v 0.327
+seed 1057 | OK   | cup-saucer xy 0.011 m | cup z now 0.048, max 0.177, upright 1.00 | 101s elapsed
+      -> success | left gripper at step 226, 0.017 m from saucer, z 0.048, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.008 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.002, 0.003, -0.004] | back/geom84 n=110 F=3.1; lift/geom84 n=60 F=2.9; open/geom84 n=19 F=4.1
+RELTRACE seed 1058 OK   | pol_tail[n=30 cup_v<=0.25 Fn<=4.2 wmax=0.056 tcp_v<=0.249] open[n=19 cup_v<=0.04 Fn<=0.0 wmax=0.079 tcp_v<=0.008] lift[n=60 cup_v<=0.04 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 218 phase policy width 0.049 Fn 2.5 tcp_v 0.333
+seed 1058 | OK   | cup-saucer xy 0.017 m | cup z now 0.049, max 0.214, upright 1.00 | 103s elapsed
+      -> success | left gripper at step 280, 0.024 m from saucer, z 0.048, cmd 0.061 | finger/hand touches after open: 0, cup drift after release: 0.009 m | saucer moved 0.006 m, finger-saucer touch steps before/after release: 0/0
+CDUMP cup-eef off=[0.002, 0.001, -0.011] | back/geom84 n=110 F=4.8; lift/geom84 n=60 F=3.2; open/geom84 n=19 F=2.6
+RELTRACE seed 1059 OK   | pol_tail[n=30 cup_v<=0.18 Fn<=3.1 wmax=0.056 tcp_v<=0.152] open[n=19 cup_v<=0.03 Fn<=0.0 wmax=0.079 tcp_v<=0.005] lift[n=60 cup_v<=0.03 Fn<=0.0 wmax=0.080 tcp_v<=0.122] | peak cup_v 0.33 at row 162 phase policy width 0.049 Fn 2.5 tcp_v 0.333
+seed 1059 | OK   | cup-saucer xy 0.009 m | cup z now 0.048, max 0.186, upright 1.00 | 104s elapsed
+      -> success | left gripper at step 252, 0.013 m from saucer, z 0.050, cmd 0.060 | finger/hand touches after open: 0, cup drift after release: 0.007 m | saucer moved 0.004 m, finger-saucer touch steps before/after release: 0/0
+
+POLICY success: 48/60 = 80% (+/- 10%)
+GTSEED 1000 success           g0 l(mm)=-2.8,+0.0,-0.7 tilt=1.00 w=0.049 | g1 l(mm)=-4.8,-0.0,+1.3 tilt=1.00 w=0.049 | maxsep 0.012
+GTSEED 1001 success           g0 l(mm)=+0.3,-0.2,-8.1 tilt=1.00 w=0.050 | g1 l(mm)=+0.1,-0.0,-5.9 tilt=1.00 w=0.049 | maxsep 0.015
+GTSEED 1002 success           g0 l(mm)=+1.6,+0.0,+1.7 tilt=1.00 w=0.049 | g1 l(mm)=+1.6,+0.0,+1.5 tilt=1.00 w=0.049 | maxsep 0.016
+GTSEED 1003 success           g0 l(mm)=+2.2,+0.0,+2.4 tilt=1.00 w=0.049 | g1 l(mm)=+0.2,-0.0,+5.2 tilt=1.00 w=0.050 | maxsep 0.021
+GTSEED 1004 success           g0 l(mm)=-5.3,+0.4,+11.6 tilt=1.00 w=0.050 | g1 l(mm)=-6.9,+0.0,+15.2 tilt=1.00 w=0.049 | maxsep 0.033
+GTSEED 1005 failed_after_lift g0 l(mm)=-12.3,-0.1,-3.3 tilt=1.00 w=0.049 | g1 l(mm)=-15.6,-0.0,-0.5 tilt=1.00 w=0.048 | maxsep 0.239
+GTSEED 1006 success           g0 l(mm)=-7.2,+0.0,+0.5 tilt=1.00 w=0.050 | g1 l(mm)=-8.1,-0.0,+3.9 tilt=1.00 w=0.049 | maxsep 0.018
+GTSEED 1007 success           g0 l(mm)=-7.2,+0.0,-1.8 tilt=1.00 w=0.049 | g1 l(mm)=-8.2,-0.1,+0.1 tilt=1.00 w=0.049 | maxsep 0.022
+GTSEED 1008 failed_after_lift g0 l(mm)=-12.5,-0.0,-5.0 tilt=1.00 w=0.049 | g1 l(mm)=-16.2,-0.0,-2.6 tilt=1.00 w=0.048 | maxsep 0.173
+GTSEED 1009 success           g0 l(mm)=-9.6,+0.0,-3.4 tilt=1.00 w=0.050 | g1 l(mm)=-11.9,+0.0,+2.0 tilt=1.00 w=0.049 | maxsep 0.024
+GTSEED 1010 success           g0 l(mm)=-7.6,+0.1,-1.0 tilt=1.00 w=0.050 | g1 l(mm)=-8.2,-0.0,+1.6 tilt=1.00 w=0.049 | maxsep 0.023
+GTSEED 1011 success           g0 l(mm)=-5.8,-0.0,+11.2 tilt=1.00 w=0.049 | g1 l(mm)=-5.9,-0.0,+15.1 tilt=1.00 w=0.049 | maxsep 0.027
+GTSEED 1012 success           g0 l(mm)=-4.0,+0.0,+9.0 tilt=1.00 w=0.049 | g1 l(mm)=-4.3,-0.1,+11.1 tilt=1.00 w=0.049 | maxsep 0.023
+GTSEED 1013 success           g0 l(mm)=-3.1,-0.3,-8.4 tilt=1.00 w=0.050 | g1 l(mm)=-2.8,+0.1,-4.0 tilt=1.00 w=0.049 | maxsep 0.009
+GTSEED 1014 success           g0 l(mm)=-5.1,+0.0,+2.7 tilt=1.00 w=0.049 | g1 l(mm)=-5.2,+0.0,+3.1 tilt=1.00 w=0.049 | maxsep 0.016
+GTSEED 1015 success           g0 l(mm)=-8.8,-0.0,+3.5 tilt=1.00 w=0.049 | g1 l(mm)=-10.5,-0.0,+6.1 tilt=1.00 w=0.049 | maxsep 0.017
+GTSEED 1016 success           g0 l(mm)=-8.1,+0.0,+6.8 tilt=1.00 w=0.049 | g1 l(mm)=-9.7,-0.0,+9.4 tilt=1.00 w=0.049 | maxsep 0.024
+GTSEED 1017 success           g0 l(mm)=-5.9,-0.1,-8.2 tilt=1.00 w=0.049 | g1 l(mm)=-5.7,-0.0,-3.0 tilt=1.00 w=0.049 | maxsep 0.008
+GTSEED 1018 failed_after_lift g0 l(mm)=-13.3,-0.4,-7.2 tilt=1.00 w=0.049 | g1 l(mm)=-15.5,-0.1,-4.6 tilt=1.00 w=0.048 | maxsep 0.234
+GTSEED 1019 success           g0 l(mm)=-3.3,+0.1,+0.7 tilt=1.00 w=0.050 | g1 l(mm)=-5.6,-0.1,+3.4 tilt=1.00 w=0.049 | maxsep 0.018
+GTSEED 1020 success           g0 l(mm)=-2.3,-0.3,-7.7 tilt=1.00 w=0.050 | g1 l(mm)=-2.8,+0.0,-4.9 tilt=1.00 w=0.049 | maxsep 0.012
+GTSEED 1021 success           g0 l(mm)=-3.4,-0.3,-7.1 tilt=1.00 w=0.050 | g1 l(mm)=-3.9,+0.2,-2.0 tilt=1.00 w=0.049 | maxsep 0.010
+GTSEED 1022 success           g0 l(mm)=-6.2,-0.1,+2.0 tilt=1.00 w=0.049 | g1 l(mm)=-6.9,-0.1,+2.9 tilt=1.00 w=0.049 | maxsep 0.016
+GTSEED 1023 failed_after_lift g0 l(mm)=-10.4,+0.0,-1.8 tilt=1.00 w=0.049 | g1 l(mm)=-14.6,-0.2,+8.1 tilt=1.00 w=0.048 | maxsep 0.297
+GTSEED 1024 success           g0 l(mm)=-6.8,-0.0,-1.8 tilt=1.00 w=0.050 | g1 l(mm)=-6.6,+0.0,+3.2 tilt=1.00 w=0.049 | maxsep 0.022
+GTSEED 1025 success           g0 l(mm)=+4.9,-0.0,-8.8 tilt=1.00 w=0.049 | g1 l(mm)=+4.4,-0.0,-6.0 tilt=1.00 w=0.049 | maxsep 0.016
+GTSEED 1026 success           g0 l(mm)=-6.3,+0.1,-4.9 tilt=1.00 w=0.050 | g1 l(mm)=-6.9,+0.0,-2.5 tilt=1.00 w=0.049 | maxsep 0.024
+GTSEED 1027 success           g0 l(mm)=-8.9,+0.0,+0.4 tilt=1.00 w=0.050 | g1 l(mm)=-8.4,-0.2,+4.9 tilt=1.00 w=0.049 | maxsep 0.019
+GTSEED 1028 success           g0 l(mm)=-5.3,-0.3,-7.9 tilt=1.00 w=0.050 | g1 l(mm)=-5.2,+0.0,-2.8 tilt=1.00 w=0.049 | maxsep 0.014
+GTSEED 1029 success           g0 l(mm)=-3.9,-0.1,-6.9 tilt=1.00 w=0.050 | g1 l(mm)=-3.9,+0.0,-4.4 tilt=1.00 w=0.049 | maxsep 0.024
+GTSEED 1030 failed_after_lift g0 l(mm)=-9.5,+0.1,+3.5 tilt=1.00 w=0.050 | g1 l(mm)=-12.1,+0.0,+9.3 tilt=1.00 w=0.049 | maxsep 0.029
+GTSEED 1031 failed_after_lift g0 l(mm)=+0.4,+0.0,-0.3 tilt=1.00 w=0.049 | g1 l(mm)=-1.9,-0.0,+0.8 tilt=1.00 w=0.049 | maxsep 0.013
+GTSEED 1032 success           g0 l(mm)=-1.9,+0.3,-8.5 tilt=1.00 w=0.050 | g1 l(mm)=-1.8,+0.0,-4.5 tilt=1.00 w=0.049 | maxsep 0.011
+GTSEED 1033 failed_after_lift g0 l(mm)=+2.1,-0.0,-8.3 tilt=1.00 w=0.050 | g1 l(mm)=+1.5,-0.0,-5.6 tilt=1.00 w=0.049 | maxsep 0.044
+GTSEED 1034 success           g0 l(mm)=+1.6,+0.0,-5.9 tilt=1.00 w=0.049 | g1 l(mm)=+1.7,+0.0,-5.5 tilt=1.00 w=0.049 | maxsep 0.016
+GTSEED 1035 success           g0 l(mm)=-9.2,+0.1,+0.3 tilt=1.00 w=0.049 | g1 l(mm)=-9.3,-0.0,+4.5 tilt=1.00 w=0.049 | maxsep 0.022
+GTSEED 1036 success           g0 l(mm)=-8.0,+0.2,-4.8 tilt=1.00 w=0.050 | g1 l(mm)=-7.9,-0.0,-2.7 tilt=1.00 w=0.049 | maxsep 0.009
+GTSEED 1037 failed_after_lift g0 l(mm)=-11.5,-0.1,-5.5 tilt=1.00 w=0.049 | g1 l(mm)=-14.6,+0.1,+3.2 tilt=1.00 w=0.048 | maxsep 0.248
+GTSEED 1038 success           g0 l(mm)=-5.1,-0.2,-7.0 tilt=1.00 w=0.050 | g1 l(mm)=-5.9,+0.1,-2.3 tilt=1.00 w=0.049 | maxsep 0.012
+GTSEED 1039 never_lifted      g0 l(mm)=-23.1,-0.4,-7.2 tilt=1.00 w=0.042 | g1 none | maxsep 0.000
+GTSEED 1040 success           g0 l(mm)=+0.5,-0.4,-8.4 tilt=1.00 w=0.050 | g1 l(mm)=+0.5,+0.1,-4.9 tilt=1.00 w=0.049 | maxsep 0.010
+GTSEED 1041 success           g0 l(mm)=-12.0,-0.2,-5.8 tilt=1.00 w=0.049 | g1 l(mm)=-13.8,-0.1,-3.9 tilt=1.00 w=0.049 | maxsep 0.020
+GTSEED 1042 success           g0 l(mm)=+0.7,-0.1,-4.4 tilt=1.00 w=0.050 | g1 l(mm)=-0.9,-0.0,-3.0 tilt=1.00 w=0.049 | maxsep 0.013
+GTSEED 1043 success           g0 l(mm)=+0.4,+0.4,+10.9 tilt=1.00 w=0.050 | g1 l(mm)=+0.8,-0.1,+15.0 tilt=1.00 w=0.049 | maxsep 0.032
+GTSEED 1044 failed_after_lift g0 l(mm)=-13.7,+0.0,+2.7 tilt=1.00 w=0.049 | g1 l(mm)=-16.7,-0.0,+4.3 tilt=1.00 w=0.047 | maxsep 0.392
+GTSEED 1045 success           g0 l(mm)=+2.5,-0.2,-8.2 tilt=1.00 w=0.050 | g1 l(mm)=+1.9,+0.0,-5.7 tilt=1.00 w=0.049 | maxsep 0.012
+GTSEED 1046 success           g0 l(mm)=-7.9,-0.2,+0.2 tilt=1.00 w=0.049 | g1 l(mm)=-8.5,-0.0,+2.9 tilt=1.00 w=0.049 | maxsep 0.016
+GTSEED 1047 success           g0 l(mm)=-2.0,-0.1,-6.2 tilt=1.00 w=0.050 | g1 l(mm)=-3.2,+0.0,-4.5 tilt=1.00 w=0.049 | maxsep 0.009
+GTSEED 1048 success           g0 l(mm)=-3.3,-0.3,-8.2 tilt=1.00 w=0.050 | g1 l(mm)=-3.3,-0.0,-4.1 tilt=1.00 w=0.049 | maxsep 0.009
+GTSEED 1049 success           g0 l(mm)=-4.4,+0.1,+1.8 tilt=1.00 w=0.050 | g1 l(mm)=-4.7,-0.0,+3.1 tilt=1.00 w=0.049 | maxsep 0.016
+GTSEED 1050 success           g0 l(mm)=-0.8,-0.2,-7.5 tilt=1.00 w=0.050 | g1 l(mm)=-0.9,+0.1,-5.3 tilt=1.00 w=0.049 | maxsep 0.009
+GTSEED 1051 success           g0 l(mm)=-11.6,-0.6,-7.6 tilt=1.00 w=0.050 | g1 l(mm)=-12.6,+0.0,-4.2 tilt=1.00 w=0.049 | maxsep 0.026
+GTSEED 1052 success           g0 l(mm)=-7.9,+0.0,+6.1 tilt=1.00 w=0.049 | g1 l(mm)=-8.2,-0.0,+7.2 tilt=1.00 w=0.049 | maxsep 0.026
+GTSEED 1053 success           g0 l(mm)=-3.7,-0.3,-8.3 tilt=1.00 w=0.050 | g1 l(mm)=-3.8,+0.1,-3.0 tilt=1.00 w=0.049 | maxsep 0.017
+GTSEED 1054 failed_after_lift g0 l(mm)=-12.8,-0.0,-0.6 tilt=1.00 w=0.049 | g1 l(mm)=-14.5,-0.0,+1.0 tilt=1.00 w=0.048 | maxsep 0.185
+GTSEED 1055 failed_after_lift g0 l(mm)=-1.8,-0.3,-8.4 tilt=1.00 w=0.050 | g1 l(mm)=-1.3,-0.0,-4.9 tilt=1.00 w=0.049 | maxsep 0.011
+GTSEED 1056 success           g0 l(mm)=-1.0,-0.0,-7.0 tilt=1.00 w=0.050 | g1 l(mm)=-1.3,-0.0,-5.1 tilt=1.00 w=0.049 | maxsep 0.014
+GTSEED 1057 success           g0 l(mm)=-5.0,-0.0,+4.4 tilt=1.00 w=0.049 | g1 l(mm)=-6.4,+0.0,+6.2 tilt=1.00 w=0.049 | maxsep 0.018
+GTSEED 1058 success           g0 l(mm)=-4.2,+0.0,+0.4 tilt=1.00 w=0.050 | g1 l(mm)=-6.0,+0.0,+3.7 tilt=1.00 w=0.049 | maxsep 0.019
+GTSEED 1059 success           g0 l(mm)=-1.5,-0.2,-7.3 tilt=1.00 w=0.050 | g1 l(mm)=-2.6,+0.0,-4.6 tilt=1.00 w=0.049 | maxsep 0.012
+GT success           grasp   n=48 | hand-frame mm mean x -4.2 y -0.1 z -2.2 sd 3.8 0.2 5.9 | world mm dx -4.0 dy +0.0 dz +2.5 | tilt 1.000 | width 0.050
+GT success           liftoff n=48 | hand-frame mm mean x -4.8 y -0.0 z +0.7 sd 4.0 0.1 5.8 | world mm dx -4.8 dy +0.0 dz -0.3 | tilt 1.000 | width 0.049
+GT success           maxsep mean 0.017 n=48
+GT failed_after_lift grasp   n=11 | hand-frame mm mean x -8.7 y -0.1 z -3.1 sd 5.6 0.1 4.0 | world mm dx -8.4 dy -0.0 dz +3.7 | tilt 1.000 | width 0.049
+GT failed_after_lift liftoff n=11 | hand-frame mm mean x -11.1 y -0.0 z +0.8 sd 6.6 0.1 4.9 | world mm dx -11.1 dy +0.0 dz +0.2 | tilt 0.999 | width 0.048
+GT failed_after_lift maxsep mean 0.170 n=11
+GT never_lifted      grasp   n= 1 | hand-frame mm mean x -23.1 y -0.4 z -7.2 sd 0.0 0.0 0.0 | world mm dx -22.4 dy +0.3 dz +9.2 | tilt 1.000 | width 0.042
+GT never_lifted      liftoff n=0
+GT never_lifted      maxsep mean 0.000 n=0
+GTX 1000 success           c0=0.0377 tcp=0.0311 eef=0.0311 tgt=0.0397 gate=0
+GTX 1001 success           c0=0.0438 tcp=0.0214 eef=0.0214 tgt=0.0270 gate=0
+GTX 1002 success           c0=0.0397 tcp=0.0714 eef=0.0714 tgt=0.0969 gate=0
+GTX 1003 success           c0=0.0437 tcp=0.0328 eef=0.0328 tgt=0.0385 gate=0
+GTX 1004 success           c0=0.0540 tcp=0.0412 eef=0.0412 tgt=0.0459 gate=0
+GTX 1005 failed_after_lift c0=0.0440 tcp=0.0258 eef=0.0258 tgt=0.0270 gate=0
+GTX 1006 success           c0=0.0467 tcp=0.0299 eef=0.0299 tgt=0.0353 gate=0
+GTX 1007 success           c0=0.0478 tcp=0.0282 eef=0.0282 tgt=0.0337 gate=0
+GTX 1008 failed_after_lift c0=0.0405 tcp=0.0240 eef=0.0240 tgt=0.0270 gate=0
+GTX 1009 success           c0=0.0401 tcp=0.0259 eef=0.0259 tgt=0.0297 gate=0
+GTX 1010 success           c0=0.0437 tcp=0.0283 eef=0.0283 tgt=0.0311 gate=0
+GTX 1011 success           c0=0.0486 tcp=0.0434 eef=0.0434 tgt=0.0507 gate=0
+GTX 1012 success           c0=0.0505 tcp=0.0447 eef=0.0447 tgt=0.0545 gate=0
+GTX 1013 success           c0=0.0369 tcp=0.0208 eef=0.0208 tgt=0.0270 gate=0
+GTX 1014 success           c0=0.0398 tcp=0.0536 eef=0.0536 tgt=0.0757 gate=0
+GTX 1015 success           c0=0.0442 tcp=0.0339 eef=0.0339 tgt=0.0407 gate=0
+GTX 1016 success           c0=0.0440 tcp=0.0375 eef=0.0375 tgt=0.0449 gate=0
+GTX 1017 success           c0=0.0302 tcp=0.0208 eef=0.0208 tgt=0.0270 gate=0
+GTX 1018 failed_after_lift c0=0.0305 tcp=0.0213 eef=0.0213 tgt=0.0270 gate=0
+GTX 1019 success           c0=0.0480 tcp=0.0304 eef=0.0304 tgt=0.0352 gate=0
+GTX 1020 success           c0=0.0377 tcp=0.0216 eef=0.0216 tgt=0.0270 gate=0
+GTX 1021 success           c0=0.0404 tcp=0.0222 eef=0.0222 tgt=0.0270 gate=0
+GTX 1022 success           c0=0.0466 tcp=0.0377 eef=0.0377 tgt=0.0569 gate=0
+GTX 1023 failed_after_lift c0=0.0421 tcp=0.0274 eef=0.0274 tgt=0.0317 gate=0
+GTX 1024 success           c0=0.0415 tcp=0.0277 eef=0.0277 tgt=0.0330 gate=0
+GTX 1025 success           c0=0.0329 tcp=0.0212 eef=0.0212 tgt=0.0270 gate=0
+GTX 1026 success           c0=0.0436 tcp=0.0244 eef=0.0244 tgt=0.0270 gate=0
+GTX 1027 success           c0=0.0446 tcp=0.0297 eef=0.0297 tgt=0.0325 gate=0
+GTX 1028 success           c0=0.0439 tcp=0.0211 eef=0.0211 tgt=0.0271 gate=0
+GTX 1029 success           c0=0.0454 tcp=0.0224 eef=0.0224 tgt=0.0285 gate=0
+GTX 1030 failed_after_lift c0=0.0446 tcp=0.0331 eef=0.0331 tgt=0.0398 gate=0
+GTX 1031 failed_after_lift c0=0.0373 tcp=0.0319 eef=0.0319 tgt=0.0398 gate=0
+GTX 1032 success           c0=0.0403 tcp=0.0208 eef=0.0208 tgt=0.0270 gate=0
+GTX 1033 failed_after_lift c0=0.0412 tcp=0.0214 eef=0.0214 tgt=0.0270 gate=0
+GTX 1034 success           c0=0.0270 tcp=0.0406 eef=0.0406 tgt=0.0738 gate=0
+GTX 1035 success           c0=0.0370 tcp=0.0335 eef=0.0335 tgt=0.0434 gate=0
+GTX 1036 success           c0=0.0437 tcp=0.0245 eef=0.0245 tgt=0.0270 gate=0
+GTX 1037 failed_after_lift c0=0.0372 tcp=0.0236 eef=0.0236 tgt=0.0293 gate=0
+GTX 1038 success           c0=0.0367 tcp=0.0223 eef=0.0223 tgt=0.0270 gate=0
+GTX 1039 never_lifted      c0=0.0382 tcp=0.0203 eef=0.0203 tgt=0.0270 gate=0
+GTX 1040 success           c0=0.0361 tcp=0.0211 eef=0.0211 tgt=0.0270 gate=0
+GTX 1041 success           c0=0.0422 tcp=0.0228 eef=0.0228 tgt=0.0296 gate=0
+GTX 1042 success           c0=0.0468 tcp=0.0255 eef=0.0255 tgt=0.0299 gate=0
+GTX 1043 success           c0=0.0530 tcp=0.0409 eef=0.0409 tgt=0.0461 gate=0
+GTX 1044 failed_after_lift c0=0.0504 tcp=0.0318 eef=0.0318 tgt=0.0342 gate=0
+GTX 1045 success           c0=0.0436 tcp=0.0215 eef=0.0215 tgt=0.0272 gate=0
+GTX 1046 success           c0=0.0448 tcp=0.0311 eef=0.0311 tgt=0.0373 gate=0
+GTX 1047 success           c0=0.0408 tcp=0.0235 eef=0.0235 tgt=0.0292 gate=0
+GTX 1048 success           c0=0.0326 tcp=0.0210 eef=0.0210 tgt=0.0270 gate=0
+GTX 1049 success           c0=0.0457 tcp=0.0385 eef=0.0385 tgt=0.0502 gate=0
+GTX 1050 success           c0=0.0366 tcp=0.0220 eef=0.0220 tgt=0.0270 gate=0
+GTX 1051 success           c0=0.0463 tcp=0.0209 eef=0.0209 tgt=0.0270 gate=0
+GTX 1052 success           c0=0.0470 tcp=0.0475 eef=0.0475 tgt=0.0594 gate=0
+GTX 1053 success           c0=0.0374 tcp=0.0208 eef=0.0208 tgt=0.0270 gate=0
+GTX 1054 failed_after_lift c0=0.0435 tcp=0.0306 eef=0.0306 tgt=0.0376 gate=0
+GTX 1055 failed_after_lift c0=0.0339 tcp=0.0209 eef=0.0209 tgt=0.0270 gate=0
+GTX 1056 success           c0=0.0258 tcp=0.0227 eef=0.0227 tgt=0.0349 gate=0
+GTX 1057 success           c0=0.0395 tcp=0.0376 eef=0.0376 tgt=0.0478 gate=0
+GTX 1058 success           c0=0.0448 tcp=0.0301 eef=0.0301 tgt=0.0342 gate=0
+GTX 1059 success           c0=0.0365 tcp=0.0222 eef=0.0222 tgt=0.0270 gate=0
+GATED episodes: 0, of which success 0
+cup lifted above 6 cm in 59/60 episodes
+strict success (cup not still held at the end): 48/60
+outcome breakdown:
+  success                                       48
+  slipped_from_closed_grip_far_from_saucer      6
+  slipped_from_closed_grip_near_saucer          2
+  released_on_saucer_then_disturbed             2
+  never_lifted                                  1
+  released_on_saucer_then_SAUCER_PUSHED_AWAY    1
+saved /home/iitgn/umi_mujoco/eval_results/results.json

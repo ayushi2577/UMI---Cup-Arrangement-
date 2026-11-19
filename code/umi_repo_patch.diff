@@ -1,0 +1,13 @@
+diff --git a/diffusion_policy/workspace/train_diffusion_unet_image_workspace.py b/diffusion_policy/workspace/train_diffusion_unet_image_workspace.py
+index 80b5193..2d65e79 100644
+--- a/diffusion_policy/workspace/train_diffusion_unet_image_workspace.py
++++ b/diffusion_policy/workspace/train_diffusion_unet_image_workspace.py
+@@ -138,7 +138,7 @@ class TrainDiffusionUnetImageWorkspace(BaseWorkspace):
+             optimizer=self.optimizer,
+             num_warmup_steps=cfg.training.lr_warmup_steps,
+             num_training_steps=(
+-                len(train_dataloader) * cfg.training.num_epochs) \
++                min(len(train_dataloader), cfg.training.max_train_steps or len(train_dataloader)) * cfg.training.num_epochs) \
+                     // cfg.training.gradient_accumulate_every,
+             # pytorch assumes stepping LRScheduler every epoch
+             # however huggingface diffusers steps it every batch

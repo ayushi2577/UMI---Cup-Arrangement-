@@ -1,0 +1,5 @@
+*.ckpt
+*.zarr
+*.zarr.zip
+*.mp4
+__pycache__/

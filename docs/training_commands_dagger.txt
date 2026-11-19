@@ -1,0 +1,8 @@
+# These two commands trained the DAgger policies (extra-data versions), not final_policy.ckpt.
+# Run from universal_manipulation_interface/ with umi_env active.
+
+# Round 1 (cup_sim_v2_dagger.zarr.zip)
+nohup python train.py --config-name=train_diffusion_unet_timm_umi_workspace task.dataset_path=/home/iitgn/umi_mujoco/sim_demos/cup_sim_v2_dagger.zarr.zip dataloader.batch_size=8 val_dataloader.batch_size=8 dataloader.num_workers=2 val_dataloader.num_workers=1 logging.mode=disabled training.rollout_every=100000 training.num_epochs=10 training.max_train_steps=2500 training.max_val_steps=100 training.checkpoint_every=1 training.lr_scheduler=cosine training.lr_warmup_steps=500 policy.obs_encoder.transforms=null checkpoint.topk.k=3 > ~/umi_mujoco/exp/train_dagger.log 2>&1 &
+
+# Round 2 (cup_sim_v3_dagger.zarr.zip)
+nohup python train.py --config-name=train_diffusion_unet_timm_umi_workspace task.dataset_path=/home/iitgn/umi_mujoco/sim_demos/cup_sim_v3_dagger.zarr.zip dataloader.batch_size=8 val_dataloader.batch_size=8 dataloader.num_workers=2 val_dataloader.num_workers=1 logging.mode=disabled training.rollout_every=100000 training.num_epochs=10 training.max_train_steps=2500 training.max_val_steps=100 training.checkpoint_every=1 training.lr_scheduler=cosine training.lr_warmup_steps=500 policy.obs_encoder.transforms=null checkpoint.topk.k=3 > ~/umi_mujoco/exp/train_v3.log 2>&1 &
