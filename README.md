@@ -279,7 +279,7 @@ export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
 <details>
 <summary><b>2. Get the trained model</b></summary>
 
-Download `final_policy.ckpt` (1.3 GB): **(ADD LINK HERE)**. Put it at `~/umi_mujoco/final_results/final_policy.ckpt`.
+Download `final_policy.ckpt` (1.3 GB): **[final_policy.ckpt (GitHub Release v1.0)](https://github.com/ayushi2577/UMI---Cup-Arrangement-/releases/download/v1.0/final_policy.ckpt)**. Put it at `~/umi_mujoco/final_results/final_policy.ckpt`.
 
 </details>
 
