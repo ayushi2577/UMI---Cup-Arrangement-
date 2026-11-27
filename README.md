@@ -4,8 +4,8 @@
 
 ### A simulated robot arm learns to pick up a cup and place it on a saucer.<br>This is the full story: what worked, what failed, and how to pick it up from here.
 
-![Success](https://img.shields.io/badge/success-81%25-2ea44f?style=for-the-badge)
-![Episodes](https://img.shields.io/badge/episodes-389%20%2F%20480-0969da?style=for-the-badge)
+![Success](https://img.shields.io/badge/success-82%25-2ea44f?style=for-the-badge)
+![Episodes](https://img.shields.io/badge/episodes-492%20%2F%20600-0969da?style=for-the-badge)
 ![MuJoCo](https://img.shields.io/badge/MuJoCo-3.2.3-f0883e?style=for-the-badge)
 ![Python](https://img.shields.io/badge/python-3.9-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Status](https://img.shields.io/badge/status-simulation%20only-8b949e?style=for-the-badge)
@@ -23,14 +23,14 @@
 
 <table>
 <tr>
-<td align="center"><h2>81%</h2><sub>final success rate<br>389 of 480 episodes</sub></td>
+<td align="center"><h2>82%</h2><sub>final success rate<br>492 of 600 episodes</sub></td>
 <td align="center"><h2>60% → 78%</h2><sub>from one small fix<br>on the same 120 seeds</sub></td>
 <td align="center"><h2>about 1 / 60</h2><sub>without the two<br>hand-tuned offsets</sub></td>
 <td align="center"><h2>1,800</h2><sub>scripted demos<br>used for training</sub></td>
 </tr>
 </table>
 
-<sub>Read time: about 10-15 minutes · Last updated: 19 Nov 2026</sub>
+<sub>Read time: about 10-15 minutes · Last updated: 27 Nov 2026</sub>
 
 </div>
 
@@ -42,7 +42,7 @@ We trained [UMI](https://umi-gripper.github.io/) (a diffusion-policy robot contr
 
 1. 🎓 **The policy learns the demos almost perfectly**, yet when it controls the robot on its own it fails about 59 times out of 60.
 2. 🩹 **Two hand-tuned offsets rescue it**: +12 mm sideways and +12 mm up on the hand target. Why they are needed is **unknown**. This is the biggest open question.
-3. 🎯 **One small change made the real difference.** Removing the upward offset *only during the final descent and grasp* took success from 60% to 78% on the same seeds, and to **81% over four fresh sets**.
+3. 🎯 **One small change made the real difference.** Removing the upward offset *only during the final descent and grasp* took success from 60% to 78% on the same seeds, and to **82% over five fresh sets**.
 4. 🚫 **Most other ideas did nothing**: retraining, extra data, retries, gates, finger changes. We list them so you do not repeat them.
 5. 📦 **Everything is here**: code, logs behind every number, saved training settings, and our mistakes.
 
@@ -71,7 +71,7 @@ flowchart LR
     B -->|"UMI train.py<br/>10 epochs"| C["Diffusion policy<br/>final_policy.ckpt"]
     C --> D["Controller<br/>+12 mm sideways, +12 mm up<br/>grasp-phase fix"]
     D --> E["MuJoCo<br/>Franka and cup"]
-    E -->|"success check"| F{{"389 / 480 = 81%"}}
+    E -->|"success check"| F{{"492 / 600 = 82%"}}
 ```
 
 ---
@@ -87,12 +87,12 @@ No offsets, no fix          █░░░░░░░░░░░░░░░░�
 Offsets, old behaviour      ████████████████████████░░░░░░░░░░░░░░░░  72 / 120 (60%)
 Half nudge during grasp     ██████████████████████████████░░░░░░░░░░  91 / 120 (76%)
 Fix: no nudge during grasp  ███████████████████████████████░░░░░░░░░  94 / 120 (78%)
-Final, four fresh sets      ████████████████████████████████░░░░░░░░  389 / 480 (81%)
+Final, five fresh sets      █████████████████████████████████░░░░░░░  492 / 600 (82%)
 ```
 
 Before all this, the policy alone scored about 25-35% on early test seeds, while the scripted expert scored about 100%.
 
-### Final result: four sets of fresh seeds
+### Final result: five sets of fresh seeds
 
 | Fresh seeds | Success | Log |
 |---|---|---|
@@ -100,8 +100,9 @@ Before all this, the policy alone scored about 25-35% on early test seeds, while
 | 2000-2119 | 87/120 (72.5%) | `results/logs/xb_0.012.txt` |
 | 3000-3119 | 100/120 (83%) | `results/logs/xc_0.012_3000.txt` |
 | 4000-4119 | 108/120 (90%) | `results/logs/xc_0.012_4000.txt` |
+| 5000-5119 | 103/120 (86%) | `results/logs/handover_5000.txt` |
 
-Sets swing a lot (72% to 90%), so quote **"about 80%" with the spread**, never one number. The fix and offset values were chosen on other seeds (160-279), so these four sets were not used for tuning.
+Sets swing a lot (72% to 90%), so quote **"about 80%" with the spread**, never one number. The fix and offset values were chosen on other seeds (160-279), so these five sets were not used for tuning.
 
 <details>
 <summary><b>The sideways offset has a narrow sweet spot</b> (click to open)</summary>
@@ -166,6 +167,23 @@ Because the floor is applied **before** the upward offset, the hand could **neve
 
 ---
 
+## The model
+
+| | |
+|---|---|
+| **Total size** | 171,273,610 parameters (about 171 million) |
+| Image part | 85,799,424 (about 86 M). A pretrained CLIP ViT-B/16 (`vit_base_patch16_clip_224.openai`), trained, not frozen |
+| Decision part | 85,474,186 (about 85 M). The diffusion U-Net that outputs the actions |
+| It looks at | the last 2 steps of images and hand data |
+| Plans / carries out | 16 steps ahead / 8 per decision |
+| Diffusion steps | 50 in training, 16 when running |
+| File | `final_policy.ckpt`, 1.3 GB |
+| GPU memory while running | about 1 GB (477 to 1,518 MiB peak, read from `nvidia-smi` during evaluation) |
+| Training time | about 4 hours on one RTX 3050 (measured on two later runs with the same recipe; the original run's own record is gone) |
+| Fingerprint (sha256) | `a8745da8cfc344b6857c80da3d7d7a7db3e2f9f0f93e9f9587ff0862adafddd8` |
+
+---
+
 ## Our journey
 
 | When (2026) | What we did | What we learned | |
@@ -179,6 +197,7 @@ Because the floor is applied **before** the upward offset, the hand could **neve
 | 14 Nov | Checked how well the policy copies demos. | Very well: position error 0.58 cm vs 3.53 cm for "stay still". Imitation is not the problem. | 🔎 |
 | 15 Nov | Tried arm-lag correction, retry-after-drop, and removing the up-shift at grasp only. | Lag correction 0/60. Retry: noise. **Removing the up-shift at grasp: 100/120 on tuning seeds.** | 🎯 |
 | 19 Nov | Confirmed on four fresh sets. Documented and handed over. | **389/480 = 81%.** | ✅ |
+| 27 Nov | Independent re-run for the handover on never-used seeds 5000-5119. | **103/120 (86%).** All five fresh sets: **492/600 = 82%.** | ✅ |
 
 <sub>✅ milestone · 🔎 insight · ❌ no gain · 🎯 the breakthrough</sub>
 
@@ -204,7 +223,7 @@ Because the floor is applied **before** the upward offset, the hand could **neve
 
 > [!WARNING]
 > - **Tuning and judging on the same seeds.** Values chosen on tuning seeds were optimistic (83% there vs 78% on fresh seeds). Always confirm on seeds you never used.
-> - **Quoting one number.** One fresh set said 78%. Four sets say 81%, ranging 72-90%.
+> - **Quoting one number.** One fresh set said 78%. Five sets say 82%, ranging 72-90%.
 > - **Big, expensive ideas first** (two retrains, DAgger rounds, gates) before looking closely at the moment of grasp. The real gain was a small controller change, not more training.
 > - **Overstating causes.** We once wrote "about 35% of failures are because of the grasp" when the data only said "associated with".
 
@@ -265,7 +284,7 @@ Download `final_policy.ckpt` (1.3 GB): **(ADD LINK HERE)**. Put it at `~/umi_muj
 </details>
 
 <details open>
-<summary><b>3. Reproduce the 81% (the final command)</b></summary>
+<summary><b>3. Reproduce the result (the final command)</b></summary>
 
 ```bash
 CK=~/umi_mujoco/final_results/final_policy.ckpt
@@ -320,13 +339,15 @@ Run `code/record_demos_v2.py` to produce `cup_sim_v2.zarr.zip` (1,800 episodes).
 | You want | Look at |
 |---|---|
 | **Evaluation (final)** | `code/eval_sim19.py` |
-| Evaluation history (each file was made by patching the previous one) | `code/eval_sim.py` ... `eval_sim19.py`, patch scripts `code/make_eval_sim15.py` ... `make_eval_sim19.py` |
+| Evaluation history (each file was made by patching the previous one) | `code/eval_sim.py` ... `eval_sim19.py`, patch scripts `code/history/make_eval_sim2.py` ... `make_eval_sim14.py` and `code/make_eval_sim15.py` ... `make_eval_sim19.py` |
 | **Training** | Not our own code. We use UMI's `train.py`. Command and settings: [Reproduce, step 5](#reproduce) and `docs/final_policy_training_config.yaml` |
 | The one change we made inside UMI | `code/umi_repo_patch.diff` (learning-rate scheduler horizon) |
 | Simulation scene and environment | `code/scene.py`, `code/env.py` (`UmiSimEnv`) |
 | Scripted expert and demo recording | `code/expert.py`, `code/expert2.py` (used for demos), `code/record_demos_v2.py` |
 | DAgger experiments | `code/record_dagger.py`, `code/merge_dagger.py`, `docs/training_commands_dagger.txt` |
 | Analysis helper | `code/rt_summary.py` (per-seed table from the per-step trace) |
+| Diagnostic scripts (unpolished, kept for reference) | `code/diagnostics/` (for example `expert_height_test.py`, `lead_trace.py`, `release_diag.py`) |
+| Our comparison with the official UMI setup | `docs/official_vs_ours.md` |
 | Logs behind every number | `results/logs/` |
 | Success videos | `results/videos/` |
 | Saved training settings | `docs/final_policy_training_config.yaml`, `docs/training_configs/` |

@@ -1,0 +1,22 @@
+I compared the paper (cup-arrangement task and Appendix E, Table A1) with what we did. I focused on the differences that could matter for success.
+
+**Where we followed the paper:** the CLIP ViT-B/16 vision encoder, a diffusion policy with DDIM and 16 inference steps, 2-frame observations, relative end-effector poses, and the encoder trained at a reduced learning rate (the paper uses 3e-5 against 3e-4).
+
+| # | Step | Official paper | Ours | Alternative to use |
+|---|---|---|---|---|
+| 1 | **Image augmentation** | Random crop (0.95), rotation ±5°, colour jitter | Off (`transforms=null`) | Remove that override so the repo's default augmentation applies. Check the default first with `grep -n -B2 -A15 "transforms" ~/umi_mujoco/universal_manipulation_interface/diffusion_policy/config/train_diffusion_unet_timm_umi_workspace.yaml`. No code change, one retrain (about 4 hours). |
+| 2 | **Training amount** | 250 epochs, batch 512, 4 GPUs | Batch 8, 10 epochs capped at 2,500 steps: about a third of one pass over the data | Raise the effective batch with gradient accumulation (check `grep -n accum ~/umi_mujoco/exp/final_cfg.yaml`), or shrink the dataset and train many passes over it. We can't match their compute on one RTX 3050. Your 80k-step run was still only about one pass. |
+| 3 | **Data** | 305 human demos with natural variation, 2 demonstrators | 1,800 scripted demos of one cup type, with identical pauses and speeds | Randomise the expert: vary speed, pause length, grasp height and path, and include recoveries. Re-record, then retrain. |
+| 4 | **Fingers** | Soft TPU fingers that conform to the cup, identical on collection and deployment | Rigid Franka fingers. We tested pad size, friction and force, but not softness | First test softer contact (`solref`/`solimp` on the pads) with the expert height test. It takes seconds. If it helps, re-record and retrain. |
+| 5 | **Gripper command** | Continuous width, force set by finger deformation | Commands under 0.06 squeeze fully, so it behaves like open/closed | Command the real width with a force limit instead of the threshold rule. This changes the data, so it needs re-record and retrain. |
+| 6 | **Camera and depth** | 155° fisheye plus side mirrors, which give implicit stereo depth | Wrist image at 224×224, no mirrors (I haven't checked `env.py` for fisheye) | Our policy only sees relative poses, so absolute height must come from the image alone [inferred]. That would explain why close height is uneven. Alternatives: a wider field of view, a second side camera, or a depth channel. All change the dataset format. |
+| 7 | **Latency and bias** | Measured delays; commands sent ahead; no offsets | `--lead 6` plus +1.2 cm x/z offsets; without them 1/120 | Measure the arm's real step response in the sim and set the lead from it, as in paper §A. A constant offset suggests a tracking or frame error [inferred]. No retrain needed to test. |
+| 8 | **Frequency and speed** | 10 Hz, executed at 0.5× speed for smoothness | 50 Hz sim, every 3rd frame (about 17 Hz) | Slow the execution and match 10 Hz. Low priority. |
+| 9 | **Added by us** | Nothing like it | Retreat handler, offsets, handoff-DAgger | Keep. These compensate for a policy bias the paper doesn't have, which tells us the training is the issue. |
+| 10 | **Evaluation** | 20 hand-matched start states, shared across methods; judged by an operator; handle within ±15° | 120 automatic seeds; automatic success check; no handle | Ours is statistically stronger. To compare methods paired, seed the policy sampler per episode, because runs currently differ per seed. |
+
+**Results are not directly comparable.** The paper reports 20/20 on a UR5 and 18/20 on a Franka arm, on real hardware. That Franka run used a WSG-50 gripper with the UMI soft fingers and a camera, not the standard Franka hand. So the arm is not the issue: the paper itself reached 90% on a Franka. Your task has no handle requirement, which makes it simpler, yet success is lower. So the gap is most likely in the training recipe and data (rows 1-3), not the robot.
+
+**What I'd do first:** rows 1 and 2 are the cheapest and match the paper most directly. Together they are one retrain with augmentation on and a larger effective batch. Row 3 helps most if you can also randomise the expert, and row 7 can be tested with no retraining. I can't promise any of them reaches the paper's level, and 90% is not a realistic promise.
+
+Which do you want first, the retrain command for rows 1 and 2, or the quick row-4 and row-7 tests that don't need training?
