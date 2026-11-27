@@ -376,6 +376,8 @@ If you are picking this up, here is where we would start, most valuable first:
 > [!CAUTION]
 > Everything below is opinion. Nothing in this repo was tested on a real robot.
 
+👉 **Full guide: [HARDWARE_DEPLOYMENT.md](HARDWARE_DEPLOYMENT.md)**
+
 UMI was built for real robots, and our controller uses only gripper width and hand pose, which a real robot can provide. But:
 - The two offsets were tuned for **this** simulator and their cause is unknown. Expect to re-tune them, or better, find the real cause first.
 - Camera images here are rendered at 224 px. Real cameras differ in lighting, colour and delay.
