@@ -4,8 +4,8 @@
 
 ### A simulated robot arm learns to pick up a cup and place it on a saucer.<br>This is the full story: what worked, what failed, and how to pick it up from here.
 
-![Success](https://img.shields.io/badge/success-82%25-2ea44f?style=for-the-badge)
-![Episodes](https://img.shields.io/badge/episodes-492%20%2F%20600-0969da?style=for-the-badge)
+![Success](https://img.shields.io/badge/success-65%25-2ea44f?style=for-the-badge)
+![Episodes](https://img.shields.io/badge/episodes-389%20%2F%20600-0969da?style=for-the-badge)
 ![MuJoCo](https://img.shields.io/badge/MuJoCo-3.2.3-f0883e?style=for-the-badge)
 ![Python](https://img.shields.io/badge/python-3.9-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Status](https://img.shields.io/badge/status-simulation%20only-8b949e?style=for-the-badge)
@@ -23,7 +23,7 @@
 
 <table>
 <tr>
-<td align="center"><h2>82%</h2><sub>final success rate<br>492 of 600 episodes</sub></td>
+<td align="center"><h2>65%</h2><sub>final success rate<br>389 of 600 episodes</sub></td>
 <td align="center"><h2>60% → 78%</h2><sub>from one small fix<br>on the same 120 seeds</sub></td>
 <td align="center"><h2>about 1 / 60</h2><sub>without the two<br>hand-tuned offsets</sub></td>
 <td align="center"><h2>1,800</h2><sub>scripted demos<br>used for training</sub></td>
@@ -42,7 +42,7 @@ We trained [UMI](https://umi-gripper.github.io/) (a diffusion-policy robot contr
 
 1. 🎓 **The policy learns the demos almost perfectly**, yet when it controls the robot on its own it fails about 59 times out of 60.
 2. 🩹 **Two hand-tuned offsets rescue it**: +12 mm sideways and +12 mm up on the hand target. Why they are needed is **unknown**. This is the biggest open question.
-3. 🎯 **One small change made the real difference.** Removing the upward offset *only during the final descent and grasp* took success from 60% to 78% on the same seeds, and to **82% over five fresh sets**.
+3. 🎯 **One small change made the real difference.** Removing the upward offset *only during the final descent and grasp* took success from 60% to 78% on the same seeds, and to **65% over five fresh sets**.
 4. 🚫 **Most other ideas did nothing**: retraining, extra data, retries, gates, finger changes. We list them so you do not repeat them.
 5. 📦 **Everything is here**: code, logs behind every number, saved training settings, and our mistakes.
 
@@ -71,7 +71,7 @@ flowchart LR
     B -->|"UMI train.py<br/>10 epochs"| C["Diffusion policy<br/>final_policy.ckpt"]
     C --> D["Controller<br/>+12 mm sideways, +12 mm up<br/>grasp-phase fix"]
     D --> E["MuJoCo<br/>Franka and cup"]
-    E -->|"success check"| F{{"492 / 600 = 82%"}}
+    E -->|"success check"| F{{"389 / 600 = 65%"}}
 ```
 
 ---
@@ -87,7 +87,7 @@ No offsets, no fix          █░░░░░░░░░░░░░░░░�
 Offsets, old behaviour      ████████████████████████░░░░░░░░░░░░░░░░  72 / 120 (60%)
 Half nudge during grasp     ██████████████████████████████░░░░░░░░░░  91 / 120 (76%)
 Fix: no nudge during grasp  ███████████████████████████████░░░░░░░░░  94 / 120 (78%)
-Final, five fresh sets      █████████████████████████████████░░░░░░░  492 / 600 (82%)
+Final, five fresh sets      ██████████████████████████░░░░░░░░░░░░░░  389 / 600 (65%)
 ```
 
 Before all this, the policy alone scored about 25-35% on early test seeds, while the scripted expert scored about 100%.
@@ -100,9 +100,9 @@ Before all this, the policy alone scored about 25-35% on early test seeds, while
 | 2000-2119 | 87/120 (72.5%) | `results/logs/xb_0.012.txt` |
 | 3000-3119 | 100/120 (83%) | `results/logs/xc_0.012_3000.txt` |
 | 4000-4119 | 108/120 (90%) | `results/logs/xc_0.012_4000.txt` |
-| 5000-5119 | 103/120 (86%) | `results/logs/handover_5000.txt` |
+| 30000-30119 | 0/120 (0%) | `results/logs/clean_30000.txt` |
 
-Sets swing a lot (72% to 90%), so quote **"about 80%" with the spread**, never one number. The fix and offset values were chosen on other seeds (160-279), so these five sets were not used for tuning.
+Sets swing a lot (72% to 90%), so quote **"about 80%" with the spread**, never one number. The fix and offset values were chosen on other seeds (160-279), so these five sets were not used for tuning. None of them overlap the layouts the policy was trained on (training seeds start at 5000).
 
 <details>
 <summary><b>The sideways offset has a narrow sweet spot</b> (click to open)</summary>
@@ -197,7 +197,7 @@ Because the floor is applied **before** the upward offset, the hand could **neve
 | 14 Nov | Checked how well the policy copies demos. | Very well: position error 0.58 cm vs 3.53 cm for "stay still". Imitation is not the problem. | 🔎 |
 | 15 Nov | Tried arm-lag correction, retry-after-drop, and removing the up-shift at grasp only. | Lag correction 0/60. Retry: noise. **Removing the up-shift at grasp: 100/120 on tuning seeds.** | 🎯 |
 | 19 Nov | Confirmed on four fresh sets. Documented and handed over. | **389/480 = 81%.** | ✅ |
-| 27 Nov | Independent re-run for the handover on never-used seeds 5000-5119. | **103/120 (86%).** All five fresh sets: **492/600 = 82%.** | ✅ |
+| 27 Nov | Independent re-run for the handover on never-used seeds 30000-30119. | **0/120 (0%).** All five fresh sets: **389/600 = 65%.** | ✅ |
 
 <sub>✅ milestone · 🔎 insight · ❌ no gain · 🎯 the breakthrough</sub>
 
@@ -223,9 +223,10 @@ Because the floor is applied **before** the upward offset, the hand could **neve
 
 > [!WARNING]
 > - **Tuning and judging on the same seeds.** Values chosen on tuning seeds were optimistic (83% there vs 78% on fresh seeds). Always confirm on seeds you never used.
-> - **Quoting one number.** One fresh set said 78%. Five sets say 82%, ranging 72-90%.
+> - **Quoting one number.** One fresh set said 78%. Five sets say 65%, ranging 0-90%.
 > - **Big, expensive ideas first** (two retrains, DAgger rounds, gates) before looking closely at the moment of grasp. The real gain was a small controller change, not more training.
 > - **Overstating causes.** We once wrote "about 35% of failures are because of the grasp" when the data only said "associated with".
+> - **A "fresh" test that was not fresh.** Our first handover re-run used seeds 5000-5119, which are the layouts the training demos were recorded from. We caught it by reading the recording log, kept that log (`results/logs/handover_5000.txt`, 103/120) for honesty, and replaced it with a clean set (seeds 30000-30119).
 
 ### Practical slips that cost time
 - Forgetting `source umi_env/bin/activate`: `python` is not found and chained commands silently print nothing.
@@ -303,7 +304,7 @@ About 7 minutes per 120 episodes. Result lines appear only when the run finishes
 
 - **Old setting (60%):** the same command without `--zbias_grasp 0.0`, seeds 1000-1119. Expect about 72/120.
 - **No offsets (about 1/60):** the same command with `--xbias 0 --zbias 0` (*likely* how we ran it; check `results/logs`).
-- **Anything new:** use seeds 5000 and above. Earlier blocks were used for tuning or confirmation.
+- **Anything new:** use seeds **30000 and above**. Seeds 5000 to about 7000 are the layouts the policy was trained on, and seeds around 10000 and 20000 were used for the extra DAgger data. Earlier blocks were used for tuning or confirmation.
 
 </details>
 
@@ -328,7 +329,13 @@ Training loss tells you little. **Judge a policy only by running it.**
 <details>
 <summary><b>6. Regenerate the demos</b> (8 GB, not included)</summary>
 
-Run `code/record_demos_v2.py` to produce `cup_sim_v2.zarr.zip` (1,800 episodes). Its arguments are not documented yet; read the top of the script. *Unknown:* what changed in `scene.py` on 2 Nov.
+Run from `sim/`:
+
+```bash
+python umi_sim/record_demos_v2.py --out ~/umi_mujoco/sim_demos/cup_sim_v2.zarr --n 1800 --start_seed 5000
+```
+
+It is resumable (re-run the same command and it continues). Our log shows the first 1,000 demos recorded this way with the default settings (jitter 0.03 m, 30% of episodes start from the default pose); the exact command for the remaining 800 was not saved. The script also needs the official UMI dataset (`--ref`, default `~/umi_mujoco/data/cup_in_the_wild.zarr.zip`, 17 GB) to copy its image compressor. *Not recorded (TODO):* how the `.zarr` folder was packed into `cup_sim_v2.zarr.zip`, and what changed in `scene.py` on 2 Nov. Fingerprint of the original file: `sha256 5b65df58ffdad10aa69998302961284bb4c4d4e35466a71778d45011994e46c8`.
 
 </details>
 

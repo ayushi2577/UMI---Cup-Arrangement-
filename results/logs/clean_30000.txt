@@ -1,0 +1,1 @@
+vit will use the CLS token. feature_aggregation (attention_pool_2d) is ignored!

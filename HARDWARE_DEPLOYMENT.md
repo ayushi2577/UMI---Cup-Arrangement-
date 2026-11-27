@@ -12,7 +12,7 @@ How to take this project from the MuJoCo simulation to a real robot, what we kno
 ## 1. Read this first (5 minutes)
 
 1. **Our trained policy was trained on simulated images from a scripted program, not on real demonstrations.** Putting it on a real robot will most likely fail, because real camera images look very different from our simple simulated ones (*likely*, never tested).
-2. **The simulation result (about 82%) depends on two hand-tuned offsets** (+12 mm sideways, +12 mm up) whose cause we never found. On hardware they may be wrong, unnecessary, or replaced by a different problem. Treat them as something to re-measure, not something to copy.
+2. **The simulation result (about 65%) depends on two hand-tuned offsets** (+12 mm sideways, +12 mm up) whose cause we never found. On hardware they may be wrong, unnecessary, or replaced by a different problem. Treat them as something to re-measure, not something to copy.
 3. **What does carry over:** the task definition, the success check, the evaluation method, the list of mistakes, the safety-minded process, and the model interface (what goes in, what comes out).
 4. **The realistic route** is to use UMI's own real-world pipeline for hardware, and use this repo as a reference and test bench. See section 3.
 
